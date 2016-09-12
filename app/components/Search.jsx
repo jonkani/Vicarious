@@ -4,7 +4,10 @@ import SearchMap from './SearchMap';
 const Search = React.createClass({
   render() {
     return <div>
-      <SearchMap />
+      <SearchMap
+        imageSearch={this.props.imageSearch}
+        searchLocation={this.props.searchLocation}
+      />
     </div>;
   }
 });
