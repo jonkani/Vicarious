@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const request = require('request');
+const axios = require('axios');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -9,23 +9,43 @@ const router = express.Router();
 router.get('/search', (req, res, next) => {
   const { maxLat, minLat, maxLon, minLon } = req.query;
   const key = process.env.API_KEY;
-  const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&bbox=${minLon}%2C${minLat}%2C${maxLon}%2C${maxLat}&group_id=44671723%40N00&extras=original_format&format=json&nojsoncallback=1`;
-  const options = { url, method: 'GET' };
+  const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&bbox=${minLon}%2C${minLat}%2C${maxLon}%2C${maxLat}&group_id=44671723%40N00&extras=original_format%2Cgeo&format=json&nojsoncallback=1`;
 
-  request(options, (err, _res, body) => {
-    if (err) {
-      // eslint-disable-next-line no-console
+  axios.get(url)
+    .then((response) => {
+      let photos = response.data.photos.photo;
+
+      photos = photos.filter((photo) => {
+        return photo.originalformat;
+      });
+      photos = photos.map((photo) => {
+        const {
+          title,
+          id,
+          server,
+          farm,
+          originalsecret,
+          originalformat,
+          latitude,
+          longitude
+        } = photo;
+
+        return {
+          title,
+          id,
+          server,
+          farm,
+          originalsecret,
+          originalformat,
+          latitude,
+          longitude
+        };
+      });
+      res.send(photos);
+    })
+    .catch((err) => {
       next(err);
-    }
-    const parsed = JSON.parse(body);
-    let photos = parsed.photos.photo;
-
-    photos = photos.filter((photo) => {
-      return photo.originalformat;
     });
-
-    res.send(photos);
-  });
 });
 
 module.exports = router;

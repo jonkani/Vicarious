@@ -6,7 +6,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       searchLocation: {},
-      imageList: {}
+      imageList: []
     };
   },
 
@@ -14,18 +14,18 @@ const App = React.createClass({
     this.setState({ searchLocation: loc });
 
     const plusWrap = function(coord, max) {
-      if (coord + 20 > max) {
+      if (coord + 10 > max) {
         return max;
       }
 
-      return coord + 20;
+      return coord + 10;
     };
     const minusWrap = function(coord, min) {
-      if (coord - 20 < min) {
+      if (coord - 10 < min) {
         return min;
       }
 
-      return coord - 20;
+      return coord - 10;
     };
     const maxLat = plusWrap(loc.lat, 90);
     const maxLon = plusWrap(loc.lon, 180);
@@ -57,7 +57,8 @@ const App = React.createClass({
     return <div>
     {React.cloneElement(this.props.children, {
       imageSearch: this.imageSearch,
-      searchLocation: this.state.searchLocation
+      searchLocation: this.state.searchLocation,
+      imageList: this.state.imageList
     })}
     </div>;
   }

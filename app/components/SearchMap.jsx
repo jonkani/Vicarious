@@ -11,7 +11,7 @@ const SearchMap = React.createClass({
   },
 
   render() {
-    return <section style={{ height: '500px' }}>
+    return <section style={{ height: '100%', width: '100%' }}>
       <GoogleMapLoader
         containerElement={
           <div
@@ -26,12 +26,15 @@ const SearchMap = React.createClass({
             defaultZoom={3}
             onClick={this.handleClick}
           >
-            <Marker
+          {this.props.imageList.map((image) => {
+            return <Marker
+              key={image.id}
               position={{
-                lat: this.props.searchLocation.lat,
-                lng: this.props.searchLocation.lon
+                lat: Number.parseFloat(image.latitude),
+                lng: Number.parseFloat(image.longitude)
               }}
-            />
+            />;
+          })}
           </GoogleMap>
       }
       />
