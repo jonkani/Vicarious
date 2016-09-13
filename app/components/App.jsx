@@ -1,12 +1,13 @@
+import { browserHistory, withRouter } from 'react-router';
 import React from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router';
 
 const App = React.createClass({
   getInitialState() {
     return {
       searchLocation: {},
-      imageList: []
+      imageList: [],
+      imageView: {}
     };
   },
 
@@ -28,13 +29,12 @@ const App = React.createClass({
       return coord - 10;
     };
     const maxLat = plusWrap(loc.lat, 90);
-    const maxLon = plusWrap(loc.lon, 180);
+    const maxLon = plusWrap(loc.lng, 180);
     const minLat = minusWrap(loc.lat, -90);
-    const minLon = minusWrap(loc.lon, -180);
+    const minLon = minusWrap(loc.lng, -180);
 
     const search = { maxLat, maxLon, minLat, minLon };
 
-    console.log(search);
     axios.get('/api/search', { params: search })
       .then((res) => {
         let photos = [];
@@ -53,12 +53,19 @@ const App = React.createClass({
       });
   },
 
+  setDisplay(photo) {
+    this.setState({ imageView: photo });
+    browserHistory.push('/display');
+  },
+
   render() {
     return <div>
     {React.cloneElement(this.props.children, {
       imageSearch: this.imageSearch,
       searchLocation: this.state.searchLocation,
-      imageList: this.state.imageList
+      imageList: this.state.imageList,
+      setDisplay: this.setDisplay,
+      imageView: this.state.imageView
     })}
     </div>;
   }

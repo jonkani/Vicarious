@@ -9,6 +9,7 @@ const Search = React.createClass({
           imageList={this.props.imageList}
           imageSearch={this.props.imageSearch}
           searchLocation={this.props.searchLocation}
+          setDisplay={this.props.setDisplay}
         />
       </div>
     </div>;

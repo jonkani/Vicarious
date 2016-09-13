@@ -13,12 +13,17 @@ const SearchMap = React.createClass({
       windowPhoto: {}
     };
   },
+  handleDisplay() {
+    const image = Object.assign({}, this.state.windowPhoto);
 
+    this.handleInfoClick();
+    this.props.setDisplay(image);
+  },
   handleClick(event) {
     const lat = event.latLng.lat();
-    const lon = event.latLng.lng();
+    const lng = event.latLng.lng();
 
-    this.props.imageSearch({ lat, lon });
+    this.props.imageSearch({ lat, lng });
   },
 
   handleInfoClick(photo) {
@@ -42,9 +47,20 @@ const SearchMap = React.createClass({
         options={{ pixelOffset: new google.maps.Size(0, -30) }}
         position={this.state.windowPosition}
       >
-        {this.state.windowPhoto.title}
+        <div>
+          <h3>{this.state.windowPhoto.title}</h3>
+          <button
+            onClick={this.handleDisplay}
+          >
+            Go!
+          </button>
+        </div>
+
       </InfoWindow>
       : null;
+    const center = this.props.searchLocation.lat
+    ? this.props.searchLocation
+    : { lat: 40.797245, lng: -99.336877 };
 
     return <section style={{ height: '100%', width: '100%' }}>
       <GoogleMapLoader
@@ -57,7 +73,7 @@ const SearchMap = React.createClass({
         }
         googleMapElement={
           <GoogleMap
-            defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+            defaultCenter={center}
             defaultZoom={3}
             onClick={this.handleClick}
           >
