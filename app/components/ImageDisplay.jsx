@@ -18,8 +18,10 @@ const ImageDisplay = React.createClass({
       url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.originalsecret}_o.${photo.originalformat}`;
     }
 
-    return <Scene>
-
+    return <Scene onLoaded={(event) => (console.log(event))}>
+      <a-assets>
+        <img id="displayimg" src={url} crossOrigin="anonymous" />
+      </a-assets>
       <Entity
         geometry={{
           primitive: 'sphere',
@@ -27,9 +29,8 @@ const ImageDisplay = React.createClass({
           segmentsWidth: 64,
           segmentsHeight: 20
         }}
-        material={{ src: `url(${url})` }}
+        material={{ src: '#displayimg' }}
         scale={"1 1 -1"}
-        onLoaded={(event) => (console.log(event))}
       />
     </Scene>;
   }
