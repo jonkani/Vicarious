@@ -9,6 +9,7 @@
     "url": ""
   },
   "scripts": {
+    "heroku-postbuild": "brunch build --production",
     "deploy": "rm -rf public; brunch build --production; surge public",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server"
@@ -40,5 +41,8 @@
     "postcss-brunch": "^2.0.1",
     "surge": "^0.18.0",
     "uglify-js-brunch": "^2.0.1"
+  },
+  "engines": {
+    "node": "6.4.0"
   }
 }
