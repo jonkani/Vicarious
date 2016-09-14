@@ -53,6 +53,10 @@ const App = React.createClass({
       });
   },
 
+  setCenter(loc) {
+    this.setState({ searchLocation: loc });
+  },
+
   setDisplay(photo) {
     this.setState({ imageView: photo });
     browserHistory.push('/display');
@@ -64,6 +68,7 @@ const App = React.createClass({
       imageSearch: this.imageSearch,
       searchLocation: this.state.searchLocation,
       imageList: this.state.imageList,
+      setCenter: this.setCenter,
       setDisplay: this.setDisplay,
       imageView: this.state.imageView
     })}

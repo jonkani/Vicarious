@@ -1,16 +1,19 @@
+import { Card, CardActions, CardHeader } from 'material-ui/Card';
 import {
   GoogleMap,
   GoogleMapLoader,
   InfoWindow,
   Marker
 } from 'react-google-maps';
+import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 
 const SearchMap = React.createClass({
   getInitialState() {
     return {
       windowPosition: null,
-      windowPhoto: {}
+      windowPhoto: {},
+      zoom: 0
     };
   },
   handleDisplay() {
@@ -25,7 +28,6 @@ const SearchMap = React.createClass({
 
     this.props.imageSearch({ lat, lng });
   },
-
   handleInfoClick(photo) {
     if (!photo) {
       this.setState({ windowPosition: null, windowPhoto: {}});
@@ -37,6 +39,7 @@ const SearchMap = React.createClass({
       lng: Number.parseFloat(photo.longitude)
     };
 
+    this.props.setCenter(markerLoc);
     this.setState({ windowPosition: markerLoc, windowPhoto: photo });
   },
 
@@ -62,36 +65,53 @@ const SearchMap = React.createClass({
     ? this.props.searchLocation
     : { lat: 40.797245, lng: -99.336877 };
 
-    return <section style={{ height: '100%', width: '100%' }}>
-      <GoogleMapLoader
-        containerElement={
-          <div
-            style={{
-              height: '100%'
-            }}
+    return <div className="searchcontainer">
+      <div className="mapcontainer">
+        <section style={{ height: '100%', width: '100%' }}>
+          <GoogleMapLoader
+            containerElement={
+              <div
+                style={{
+                  height: '100%'
+                }}
+              />
+            }
+            googleMapElement={
+              <GoogleMap
+                center={center}
+                defaultZoom={3}
+                onClick={this.handleClick}
+              >
+              {this.props.imageList.map((image) => {
+                return <Marker
+                  key={image.id}
+                  onClick={() => (this.handleInfoClick(image))}
+                  position={{
+                    lat: Number.parseFloat(image.latitude),
+                    lng: Number.parseFloat(image.longitude)
+                  }}
+                />;
+              })}
+              {infoWindow}
+              </GoogleMap>
+          }
           />
-        }
-        googleMapElement={
-          <GoogleMap
-            defaultCenter={center}
-            defaultZoom={3}
-            onClick={this.handleClick}
-          >
-          {this.props.imageList.map((image) => {
-            return <Marker
-              key={image.id}
-              onClick={() => (this.handleInfoClick(image))}
-              position={{
-                lat: Number.parseFloat(image.latitude),
-                lng: Number.parseFloat(image.longitude)
-              }}
-            />;
-          })}
-          {infoWindow}
-          </GoogleMap>
-      }
-      />
-    </section>;
+        </section>
+      </div>
+      <div className="listcontainer">
+        {this.props.imageList.map((image) => {
+          return <Card key={image.id}>
+            <CardHeader title={image.title} />
+            <CardActions>
+              <RaisedButton
+                label="Go!"
+                onClick={() => (this.handleInfoClick(image))}
+              />
+            </CardActions>
+          </Card>;
+        })}
+      </div>
+    </div>;
   }
 });
 

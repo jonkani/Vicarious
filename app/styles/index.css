@@ -2,7 +2,19 @@ body {
   margin: 0;
 }
 
+.listcontainer {
+  overflow: auto;
+  height: 30rem;
+  width: 20rem;
+  background-color: yellow;
+}
+
 .mapcontainer {
   height: 400px;
   width: 400px;
+}
+
+.searchcontainer {
+  display: flex;
+  flex-direction: row;
 }
