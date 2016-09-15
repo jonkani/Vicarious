@@ -28,6 +28,16 @@ body {
   margin-left: 2%;
   margin-right: 2%;
 }
+.monitor {
+  border: 2px solid white;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 70%;
+  width: 80%;
+}
+.outermonitor {
+  background-color: grey;
+}
 
 .searchcontainer {
   display: flex;

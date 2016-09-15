@@ -104,13 +104,13 @@ const SearchMap = React.createClass({
         <div className="listcontainer">
           {this.props.imageList.map((image) => {
             return <Card key={image.id}>
-            <CardHeader title={image.title} />
-            <CardActions>
-            <RaisedButton
-            label="Go!"
-            onClick={() => (this.handleInfoClick(image))}
-            />
-            </CardActions>
+              <CardHeader title={image.title} />
+              <CardActions>
+                <RaisedButton
+                  label="Go!"
+                  onClick={() => (this.handleInfoClick(image))}
+                />
+              </CardActions>
             </Card>;
           })}
         </div>
