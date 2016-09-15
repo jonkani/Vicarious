@@ -64,14 +64,20 @@ const App = React.createClass({
 
   render() {
     return <div className="mastercontainer">
-    {React.cloneElement(this.props.children, {
-      imageSearch: this.imageSearch,
-      searchLocation: this.state.searchLocation,
-      imageList: this.state.imageList,
-      setCenter: this.setCenter,
-      setDisplay: this.setDisplay,
-      imageView: this.state.imageView
-    })}
+      <div className="midmonitor">
+        <div className="monitor">
+          <div className="gradient">
+            {React.cloneElement(this.props.children, {
+              imageSearch: this.imageSearch,
+              searchLocation: this.state.searchLocation,
+              imageList: this.state.imageList,
+              setCenter: this.setCenter,
+              setDisplay: this.setDisplay,
+              imageView: this.state.imageView
+            })}
+          </div>
+        </div>
+      </div>
     </div>;
   }
 });

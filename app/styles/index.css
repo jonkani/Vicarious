@@ -44,17 +44,21 @@ html, body {
 
 .midmonitor {
   margin-left: 1%;
-  background-color: black;
+  background-image:
+    linear-gradient(
+      to bottom left,
+      #9d9185, #b4aaa2
+      );
   border-radius: 20px;
   height: 90%;
-  width: 90%;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .monitor {
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 20px;
   overflow: hidden;
   height: 93%;
@@ -62,7 +66,7 @@ html, body {
 }
 
 .outermonitor {
-  background-color: grey;
+  background-color: #c8c1bb;
 }
 
 .searchcontainer {
@@ -73,11 +77,14 @@ html, body {
   width: 100%;
 }
 
-.gradient {
+.searchscreen {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.gradient {
   height: 100%;
   background-image:
     url(http://1nova.com/wallpapers/wp-content/uploads/sites/34/2015/02/Retro-80s-Arcade-Game.jpg);
