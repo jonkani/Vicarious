@@ -42,12 +42,23 @@ html, body {
   margin-right: 2%;
 }
 
+.midmonitor {
+  margin-left: 1%;
+  background-color: black;
+  border-radius: 20px;
+  height: 90%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .monitor {
   border: 2px solid black;
   border-radius: 20px;
   overflow: hidden;
-  height: 85%;
-  width: 80%;
+  height: 93%;
+  width: 95%;
 }
 
 .outermonitor {
