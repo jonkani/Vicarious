@@ -81,6 +81,7 @@ const SearchMap = React.createClass({
                 center={center}
                 defaultZoom={3}
                 onClick={this.handleClick}
+                options={{ streetViewControl: false, mapTypeControl: false }}
               >
               {this.props.imageList.map((image) => {
                 return <Marker
@@ -98,18 +99,21 @@ const SearchMap = React.createClass({
           />
         </section>
       </div>
-      <div className="listcontainer">
-        {this.props.imageList.map((image) => {
-          return <Card key={image.id}>
+      <div className="listparent">
+        <h3>Results</h3>
+        <div className="listcontainer">
+          {this.props.imageList.map((image) => {
+            return <Card key={image.id}>
             <CardHeader title={image.title} />
             <CardActions>
-              <RaisedButton
-                label="Go!"
-                onClick={() => (this.handleInfoClick(image))}
-              />
+            <RaisedButton
+            label="Go!"
+            onClick={() => (this.handleInfoClick(image))}
+            />
             </CardActions>
-          </Card>;
-        })}
+            </Card>;
+          })}
+        </div>
       </div>
     </div>;
   }

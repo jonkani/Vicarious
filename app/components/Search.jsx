@@ -4,6 +4,7 @@ import SearchMap from './SearchMap';
 const Search = React.createClass({
   render() {
     return <div>
+      <div className="logo"><span>V</span>ica<span>R</span>ious</div>
       <SearchMap
         imageList={this.props.imageList}
         imageSearch={this.props.imageSearch}

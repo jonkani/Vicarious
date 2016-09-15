@@ -1,20 +1,93 @@
+@font-face {
+    font-family: 'setback_tt_brkregular';
+    src: url('setbackt-webfont.woff2') format('woff2'),
+         url('setbackt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   margin: 0;
 }
 
-.listcontainer {
-  overflow: auto;
+.listparent {
   height: 30rem;
   width: 20rem;
-  background-color: yellow;
+  background-color: indigo;
+}
+
+.listcontainer {
+  overflow: auto;
+  height: 20rem;
+  width: 20rem;
 }
 
 .mapcontainer {
-  height: 400px;
-  width: 400px;
+  height: 30rem;
+  width: 30rem;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .searchcontainer {
   display: flex;
+  justify-content: center;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.gradient {
+  background-image:
+    url(http://1nova.com/wallpapers/wp-content/uploads/sites/34/2015/02/Retro-80s-Arcade-Game.jpg);
+  background-size: auto;
+}
+
+.logo{
+  text-align: center;
+  width: 65%;
+  height: 15%;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font: 100 15vh "setback_tt_brkregular";
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000;
+}
+.logo span{
+  animation: blink linear infinite 10s;
+}
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79%{
+     color: #333;
+  }
+  80% {
+
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  90% {
+    color: #333;
+    text-shadow: none;
+  }
+  91.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
 }
