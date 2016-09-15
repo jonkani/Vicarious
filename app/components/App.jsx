@@ -63,7 +63,7 @@ const App = React.createClass({
   },
 
   render() {
-    return <div>
+    return <div className="mastercontainer">
     {React.cloneElement(this.props.children, {
       imageSearch: this.imageSearch,
       searchLocation: this.state.searchLocation,
