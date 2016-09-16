@@ -23,7 +23,15 @@ const ImageDisplay = React.createClass({
       url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.originalsecret}_o.${photo.originalformat}`;
     }
 
-    return <div style={{ position: 'absolute', height: '100%', width: '100%' }}>
+    return <div
+      style={{
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+        top: 0,
+        left: 0
+      }}
+    >
       <Scene
         onLoaded={(event) => (console.log(event))}
         vr-mode-ui={{ enabled: 'true' }}
