@@ -81,7 +81,7 @@ const App = React.createClass({
             </div>
           </div>
           <div className="buttoncontainer">
-            <div className="logodiv"><img src="http://cdn.techgyd.com/eye-bee-m.jpg" style={{width:'50%', marginTop: '10%'}}/></div>
+            <div className="logodiv"><img src="http://cdn.techgyd.com/eye-bee-m.jpg" style={{ width: '50%', marginTop: '10%' }} /></div>
             <div className="buttondiv"></div>
           </div>
         </div>
