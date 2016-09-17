@@ -15,6 +15,26 @@ html, body {
   height: 100%;
 }
 
+.buttoncontainer {
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #46443f;
+  /*border-image:
+    linear-gradient(
+      to bottom,
+      black,
+      rgba(0, 0, 0, 0)
+      )
+    1 100%;*/
+  height: 100%;
+  width: 16%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .listparent {
   height: 30rem;
   width: 20rem;
@@ -27,12 +47,25 @@ html, body {
   width: 20rem;
 }
 
+.logodiv {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttondiv {
+  width:100%;
+  height: 50%
+}
+
 .mastercontainer {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
 }
 
 .mapcontainer {
@@ -43,15 +76,30 @@ html, body {
 }
 
 .midmonitor {
-  margin-left: 1%;
   background-image:
     linear-gradient(
       to bottom left,
-      #9d9185, #b4aaa2
-      );
+      #4e4c46, #5b5852
+    );
   border-radius: 20px;
+  height: 93%;
+  width: 78%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3%;
+}
+
+.midbuttons {
+  width: 15%;
   height: 90%;
-  width: 75%;
+  border-radius: 20px;
+  background-image:
+    linear-gradient(
+      to bottom left,
+      #5b5852, #46443f
+  );
+  margin-left: 4%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,8 +113,28 @@ html, body {
   width: 95%;
 }
 
+.monitorborder {
+  background-color: #6b6861;
+  border-radius: 20px;
+  height: 99%;
+  width: 99.2%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.monitorborderborder {
+  height: 94%;
+  width: 94%;
+  background-color: #928577;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .outermonitor {
-  background-color: #c8c1bb;
+  background-color: #bdb5ad;
 }
 
 .searchcontainer {
