@@ -20,7 +20,7 @@ const ImageDisplay = React.createClass({
     let url = '';
 
     if (photo) {
-      url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.originalsecret}_o.${photo.originalformat}`;
+      url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.originalSecret}_o.${photo.originalFormat}`;
     }
 
     return <div

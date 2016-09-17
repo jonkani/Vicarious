@@ -35,8 +35,8 @@ router.get('/search', (req, res, next) => {
           id,
           server,
           farm,
-          originalsecret,
-          originalformat,
+          originalSecret: originalsecret,
+          originalFormat: originalformat,
           latitude,
           longitude
         };

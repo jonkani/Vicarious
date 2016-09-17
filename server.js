@@ -10,6 +10,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const search = require('./routes/search');
+const users = require('./routes/users');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/api', (req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api', search);
+app.use('/api', users);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
