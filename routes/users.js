@@ -3,6 +3,7 @@
 const express = require('express');
 const boom = require('boom');
 const knex = require('../knex');
+const { checkAuth } = require('./middleware');
 const bcrypt = require('bcrypt-as-promised');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 
@@ -32,6 +33,18 @@ router.post('/users', (req, res, next) => {
     })
     .then(() => {
       res.sendStatus(200);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.get('/users/favorites', checkAuth, (req, res, next) => {
+  knex('favorites')
+    .innerJoin('users_favorites', 'favorite_id', 'favorites.id')
+    .where('user_id', req.token.userId)
+    .then((response) => {
+      res.send(camelizeKeys(response));
     })
     .catch((err) => {
       next(err);

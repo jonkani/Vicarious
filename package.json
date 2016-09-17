@@ -28,6 +28,7 @@
     "boom": "^4.0.0",
     "brunch": "^2.8.2",
     "clean-css-brunch": "^2.0.0",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
     "humps": "^1.1.0",
     "javascript-brunch": "^2.0.0",

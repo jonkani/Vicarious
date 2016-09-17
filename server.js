@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
@@ -41,6 +42,7 @@ app.use('/api', (req, res, next) => {
 });
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use('/api', search);
 app.use('/api', token);

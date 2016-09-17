@@ -8,7 +8,7 @@ exports.seed = function(knex) {
         id: 1,
         email: 'vic@vicarious.com',
         hashed_password:
-          '$2a$12$Q3fh1jeJZ2Q19Yr12aVOxO54a/IvBhS01qWCqxNAZc0ABRxq0NnYq'
+          '$2a$12$4UE7FVElHiap0yRqBX.t8.SYBp7fJZYi5snkIuyy/jK3lqTiYl/0m'
       }]);
     })
     .then(() => {
