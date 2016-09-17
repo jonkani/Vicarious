@@ -51,4 +51,54 @@ router.get('/users/favorites', checkAuth, (req, res, next) => {
     });
 });
 
+router.post('/users/favorites', checkAuth, (req, res, next) => {
+  const {
+    title,
+    id,
+    server,
+    farm,
+    originalSecret,
+    originalFormat,
+    latitude,
+    longitude
+  } = req.body;
+  const userId = req.token.userId;
+
+  knex('favorites')
+    .select('id')
+    .where('image_id', id)
+    .first()
+    .then((imgId) => {
+      if (imgId) {
+        return imgId.id;
+      }
+
+      const newFavorite = {
+        title,
+        imageId: id,
+        server,
+        farm,
+        originalSecret,
+        originalFormat,
+        latitude,
+        longitude
+      };
+
+      return knex('favorites')
+        .insert(decamelizeKeys(newFavorite), 'id');
+    })
+    .then((favoriteId) => {
+      const userFavorite = { userId, favoriteId };
+
+      return knex('users_favorites')
+      .insert(decamelizeKeys(userFavorite));
+    })
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
