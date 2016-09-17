@@ -31,6 +31,7 @@
     "dotenv": "^2.0.0",
     "humps": "^1.1.0",
     "javascript-brunch": "^2.0.0",
+    "jsonwebtoken": "^7.1.9",
     "knex": "^0.12.1",
     "material-ui": "^0.15.4",
     "morgan": "^1.7.0",

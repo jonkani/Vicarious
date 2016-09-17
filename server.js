@@ -10,6 +10,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const search = require('./routes/search');
+const token = require('./routes/token');
 const users = require('./routes/users');
 
 const app = express();
@@ -42,6 +43,7 @@ app.use('/api', (req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api', search);
+app.use('/api', token);
 app.use('/api', users);
 
 app.use((_req, res) => {
