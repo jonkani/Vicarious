@@ -42,6 +42,16 @@ router.post('/users', (req, res, next) => {
 router.get('/users/favorites', checkAuth, (req, res, next) => {
   knex('favorites')
     .innerJoin('users_favorites', 'favorite_id', 'favorites.id')
+    .select(
+      'title',
+      'image_id as id',
+      'server',
+      'farm',
+      'original_format',
+      'original_secret',
+      'latitude',
+      'longitude'
+    )
     .where('user_id', req.token.userId)
     .then((response) => {
       res.send(camelizeKeys(response));
