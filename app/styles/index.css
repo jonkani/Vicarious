@@ -47,6 +47,12 @@ html, body {
   width: 20rem;
 }
 
+.loginform {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .logodiv {
   width: 100%;
   height: 50%;
@@ -57,7 +63,10 @@ html, body {
 
 .buttondiv {
   width:100%;
-  height: 50%
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mastercontainer {
@@ -137,6 +146,12 @@ html, body {
   background-color: #bdb5ad;
 }
 
+.regform {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .searchcontainer {
   display: flex;
   justify-content: center;
@@ -152,6 +167,15 @@ html, body {
   align-items: center;
 }
 
+.usercontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 .gradient {
   height: 100%;
   background-image:
@@ -164,9 +188,11 @@ html, body {
   color: #fee;
   text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000;
 }
+
 .logo span{
   animation: blink linear infinite 10s;
 }
+
 @keyframes blink {
   78% {
     color: inherit;
