@@ -102,9 +102,9 @@ const SearchMap = React.createClass({
                 onClick={this.handleClick}
                 options={{ streetViewControl: false, mapTypeControl: false }}
               >
-              {resultsList.map((image) => {
+              {resultsList.map((image, index) => {
                 return <Marker
-                  key={image.id}
+                  key={index}
                   onClick={() => (this.handleInfoClick(image))}
                   position={{
                     lat: Number.parseFloat(image.latitude),

@@ -109,7 +109,7 @@ const User = React.createClass({
           />
           <button onClick={this.handleLogin}>Login</button>
         </form>
-        <form className="regform">
+        <form className="loginform">
           <input
             name="reg.email"
             onChange={this.handleTextChange}
@@ -128,7 +128,7 @@ const User = React.createClass({
             placeholder="Confirm Password"
             type="password"
           />
-          <button onClick={this.handleRegister}>Submit</button>
+          <button onClick={this.handleRegister}>Register</button>
         </form>
       </div>;
     }
