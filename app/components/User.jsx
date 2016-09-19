@@ -95,6 +95,7 @@ const User = React.createClass({
     else {
       loginBody = <div className="formcontainer">
         <form className="loginform">
+          <h2 style={{ color: 'white', width: '100%', margin: '0 0', textAlign: 'center' }}>Login</h2>
           <input
             name="login.email"
             onChange={this.handleTextChange}
@@ -110,6 +111,7 @@ const User = React.createClass({
           <button onClick={this.handleLogin}>Login</button>
         </form>
         <form className="loginform">
+          <h2 style={{ color: 'white', width: '100%', margin: '0 0', textAlign: 'center' }}>Register</h2>
           <input
             name="reg.email"
             onChange={this.handleTextChange}
