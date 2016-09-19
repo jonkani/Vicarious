@@ -51,6 +51,30 @@ const User = React.createClass({
     });
   },
 
+  handleLogout(event) {
+    event.preventDefault();
+
+    axios.delete('/api/token')
+    .then(() => {
+      const newLogin = Object.assign(
+        {},
+        this.state.login,
+        { email: '', password: '' }
+      );
+      const newReg = Object.assign(
+        {},
+        this.state.login,
+        { email: '', password: '', confirm: '' }
+      );
+
+      this.setState({ login: newLogin, reg: newReg });
+      browserHistory.push('/');
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  },
+
   handleTextChange(event) {
     const target = event.target.name.split('.')[0];
     const name = event.target.name.split('.')[1];
@@ -63,43 +87,54 @@ const User = React.createClass({
   },
 
   render() {
+    let loginBody;
+
+    if (document.cookie) {
+      loginBody = <button onClick={this.handleLogout}>Logout</button>;
+    }
+    else {
+      loginBody = <div className="formcontainer">
+        <form className="loginform">
+          <input
+            name="login.email"
+            onChange={this.handleTextChange}
+            placeholder="Email"
+            type="text"
+          />
+          <input
+            name="login.password"
+            onChange={this.handleTextChange}
+            placeholder="Password"
+            type="password"
+          />
+          <button onClick={this.handleLogin}>Login</button>
+        </form>
+        <form className="regform">
+          <input
+            name="reg.email"
+            onChange={this.handleTextChange}
+            placeholder="Email"
+            type="text"
+          />
+          <input
+            name="reg.password"
+            onChange={this.handleTextChange}
+            placeholder="Password"
+            type="password"
+          />
+          <input
+            name="reg.confirm"
+            onChange={this.handleTextChange}
+            placeholder="Confirm Password"
+            type="password"
+          />
+          <button onClick={this.handleRegister}>Submit</button>
+        </form>
+      </div>;
+    }
+
     return <div className="usercontainer">
-      <form className="loginform">
-        <input
-          name="login.email"
-          onChange={this.handleTextChange}
-          placeholder="Email"
-          type="text"
-        />
-        <input
-          name="login.password"
-          onChange={this.handleTextChange}
-          placeholder="Password"
-          type="password"
-        />
-        <button onClick={this.handleLogin}>Login</button>
-      </form>
-      <form className="regform">
-        <input
-          name="reg.email"
-          onChange={this.handleTextChange}
-          placeholder="Email"
-          type="text"
-        />
-        <input
-          name="reg.password"
-          onChange={this.handleTextChange}
-          placeholder="Password"
-          type="password"
-        />
-        <input
-          name="reg.confirm"
-          onChange={this.handleTextChange}
-          placeholder="Confirm Password"
-          type="password"
-        />
-        <button onClick={this.handleRegister}>Submit</button>
-      </form>
+      {loginBody}
     </div>;
   }
 });

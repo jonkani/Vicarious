@@ -69,6 +69,15 @@ html, body {
   align-items: center;
 }
 
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 .mastercontainer {
   height: 100%;
   display: flex;
@@ -169,8 +178,7 @@ html, body {
 
 .usercontainer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
