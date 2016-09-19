@@ -10,7 +10,7 @@ exports.seed = function(knex) {
         title: 'The Oh-hori Park',
         server: 1186,
         farm: 2,
-        original_secret: '677bf4b1a1',
+        original_secret: '9df792d2bc',
         original_format: 'jpg',
         latitude: '33.5885656',
         longitude: '130.375744'

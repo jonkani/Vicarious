@@ -7,7 +7,9 @@ const App = React.createClass({
     return {
       searchLocation: {},
       imageList: [],
-      imageView: {}
+      imageView: {},
+      favorites: [],
+      displayFavorites: false
     };
   },
 
@@ -53,6 +55,21 @@ const App = React.createClass({
       });
   },
 
+  getFavorites() {
+    axios.get('/api/users/favorites')
+      .then((response) => {
+        const newFavorites = response.data;
+
+        this.setState({ favorites: newFavorites });
+      });
+  },
+
+  toggleFavorites() {
+    const flip = !this.state.displayFavorites;
+
+    this.setState({ displayFavorites: flip });
+  },
+
   setCenter(loc) {
     this.setState({ searchLocation: loc });
   },
@@ -75,14 +92,18 @@ const App = React.createClass({
                   imageList: this.state.imageList,
                   setCenter: this.setCenter,
                   setDisplay: this.setDisplay,
-                  imageView: this.state.imageView
+                  imageView: this.state.imageView,
+                  getFavorites: this.getFavorites,
+                  displayFavorites: this.state.displayFavorites,
+                  toggleFavorites: this.toggleFavorites,
+                  favorites: this.state.favorites
                 })}
               </div>
             </div>
           </div>
           <div className="buttoncontainer">
             <div className="logodiv"><img src="http://cdn.techgyd.com/eye-bee-m.jpg" style={{ width: '50%', marginTop: '10%' }} /></div>
-            <div className="buttondiv"><button>login</button></div>
+            <div className="buttondiv"><button onTouchTap={() => (browserHistory.push('/user'))}>login</button></div>
           </div>
         </div>
       </div>

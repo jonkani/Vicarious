@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 const User = React.createClass({
   getInitialState() {
@@ -13,6 +15,40 @@ const User = React.createClass({
         confirm: ''
       }
     };
+  },
+
+  handleRegister(event) {
+    event.preventDefault();
+
+    const reg = {
+      email: this.state.reg.email,
+      password: this.state.reg.password
+    };
+
+    axios.post('/api/users', reg)
+    .then(() => {
+      axios.post('/api/token', reg);
+    })
+    .then(() => {
+      browserHistory.push('/');
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  },
+
+  handleLogin(event) {
+    event.preventDefault();
+
+    const login = this.state.login;
+
+    axios.post('/api/token', login)
+    .then(() => {
+      browserHistory.push('/');
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   },
 
   handleTextChange(event) {
@@ -41,7 +77,7 @@ const User = React.createClass({
           placeholder="Password"
           type="password"
         />
-        <button>Submit</button>
+        <button onClick={this.handleLogin}>Login</button>
       </form>
       <form className="regform">
         <input
@@ -62,7 +98,7 @@ const User = React.createClass({
           placeholder="Confirm Password"
           type="password"
         />
-        <button>Submit</button>
+        <button onClick={this.handleRegister}>Submit</button>
       </form>
     </div>;
   }

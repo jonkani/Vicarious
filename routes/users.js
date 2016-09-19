@@ -29,7 +29,7 @@ router.post('/users', (req, res, next) => {
       const row = decamelizeKeys(newUser);
 
       return knex('users')
-        .insert(row, '*');
+        .insert(row);
     })
     .then(() => {
       res.sendStatus(200);

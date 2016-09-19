@@ -43,6 +43,13 @@ const SearchMap = React.createClass({
     this.setState({ windowPosition: markerLoc, windowPhoto: photo });
   },
 
+  handleToggle() {
+    if (this.props.favorites.length === 0) {
+      this.props.getFavorites();
+    }
+    this.props.toggleFavorites();
+  },
+
   render() {
     const infoWindow = this.state.windowPosition
       ? <InfoWindow
@@ -64,6 +71,18 @@ const SearchMap = React.createClass({
     const center = this.props.searchLocation.lat
     ? this.props.searchLocation
     : { lat: 40.797245, lng: -99.336877 };
+    const listDisplay = this.props.displayFavorites && document.cookie
+    ? <div>
+      <h3>Favorites</h3>
+      <RaisedButton label="Search" onClick={this.handleToggle} />
+    </div>
+    : <div>
+      <h3>Search Results</h3>
+      <RaisedButton label="Favorites" onClick={this.handleToggle} />
+    </div>;
+    const resultsList = this.props.displayFavorites && document.cookie
+    ? this.props.favorites
+    : this.props.imageList;
 
     return <div className="searchcontainer">
       <div className="mapcontainer">
@@ -83,7 +102,7 @@ const SearchMap = React.createClass({
                 onClick={this.handleClick}
                 options={{ streetViewControl: false, mapTypeControl: false }}
               >
-              {this.props.imageList.map((image) => {
+              {resultsList.map((image) => {
                 return <Marker
                   key={image.id}
                   onClick={() => (this.handleInfoClick(image))}
@@ -100,9 +119,9 @@ const SearchMap = React.createClass({
         </section>
       </div>
       <div className="listparent">
-        <h3>Results</h3>
+        {listDisplay}
         <div className="listcontainer">
-          {this.props.imageList.map((image) => {
+          {resultsList.map((image) => {
             return <Card key={image.id}>
               <CardHeader title={image.title} />
               <CardActions>
