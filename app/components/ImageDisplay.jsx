@@ -15,12 +15,32 @@ const ImageDisplay = React.createClass({
     browserHistory.push('/');
   },
 
+  handleFavorite() {
+    console.log('yes');
+    this.props.addFavorite();
+  },
+
   render() {
     const photo = this.props.imageView;
     let url = '';
+    let favoriteButton = null;
 
     if (photo) {
       url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.originalSecret}_o.${photo.originalFormat}`;
+    }
+    if (document.cookie) {
+      favoriteButton = <FloatingActionButton
+        onTouchTap={this.handleFavorite}
+        style={{
+          color: 'red',
+          zIndex: 999,
+          position: 'fixed',
+          bottom: '2%',
+          left: '8%'
+        }}
+        zDepth={0}
+      >
+      </FloatingActionButton>;
     }
 
     return <div
@@ -62,6 +82,7 @@ const ImageDisplay = React.createClass({
       >
         <NavBack />
       </FloatingActionButton>
+      {favoriteButton}
     </div>;
   }
 });

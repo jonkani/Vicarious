@@ -72,7 +72,7 @@ router.post('/users/favorites', checkAuth, (req, res, next) => {
     latitude,
     longitude
   } = req.body;
-  const userId = req.token.userId;
+  const userId = Number.parseInt(req.token.userId);
 
   knex('favorites')
     .select('id')
@@ -97,7 +97,8 @@ router.post('/users/favorites', checkAuth, (req, res, next) => {
       return knex('favorites')
         .insert(decamelizeKeys(newFavorite), 'id');
     })
-    .then((favoriteId) => {
+    .then((favId) => {
+      const favoriteId = Number.parseInt(favId);
       const userFavorite = { userId, favoriteId };
 
       return knex('users_favorites')

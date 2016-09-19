@@ -61,7 +61,22 @@ const App = React.createClass({
         const newFavorites = response.data;
 
         this.setState({ favorites: newFavorites });
+      })
+      .catch((err) => {
+        console.error(err);
       });
+  },
+
+  addFavorite() {
+    if (this.state.imageView) {
+      axios.post('/api/users/favorites', this.state.imageView)
+        .then(() => {
+          this.getFavorites();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   },
 
   toggleFavorites() {
@@ -96,6 +111,7 @@ const App = React.createClass({
                   getFavorites: this.getFavorites,
                   displayFavorites: this.state.displayFavorites,
                   toggleFavorites: this.toggleFavorites,
+                  addFavorite: this.addFavorite,
                   favorites: this.state.favorites
                 })}
               </div>
