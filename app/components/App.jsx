@@ -1,11 +1,13 @@
 import { browserHistory, withRouter } from 'react-router';
 import React from 'react';
+import Sidebar from './Sidebar';
 import axios from 'axios';
 
 const App = React.createClass({
   getInitialState() {
     return {
       searchLocation: {},
+      searchSize: 2,
       imageList: [],
       imageView: {},
       favorites: [],
@@ -13,22 +15,28 @@ const App = React.createClass({
     };
   },
 
+  setSize(size) {
+    this.setState({ searchSize: size });
+  },
+
   imageSearch(loc) {
+    const size = this.state.searchSize;
+
     this.setState({ searchLocation: loc });
 
     const plusWrap = function(coord, max) {
-      if (coord + 10 > max) {
+      if (coord + size > max) {
         return max;
       }
 
-      return coord + 10;
+      return coord + size;
     };
     const minusWrap = function(coord, min) {
-      if (coord - 10 < min) {
+      if (coord - size < min) {
         return min;
       }
 
-      return coord - 10;
+      return coord - size;
     };
     const maxLat = plusWrap(loc.lat, 90);
     const maxLon = plusWrap(loc.lng, 180);
@@ -117,10 +125,7 @@ const App = React.createClass({
               </div>
             </div>
           </div>
-          <div className="buttoncontainer">
-            <div className="logodiv"><img src="http://cdn.techgyd.com/eye-bee-m.jpg" style={{ width: '50%', marginTop: '10%' }} /></div>
-            <div className="buttondiv"><button onTouchTap={() => (browserHistory.push('/user'))}>login</button></div>
-          </div>
+          <Sidebar setSize={this.setSize} />
         </div>
       </div>
     </div>;
