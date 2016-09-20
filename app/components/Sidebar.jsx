@@ -16,6 +16,14 @@ const Sidebar = React.createClass({
   },
 
   render() {
+    const userlabelStyle = {
+      textShadow: '-1px -1px 1px #fff, 1px 1px 1px #000',
+      color: '#363430',
+      opacity: '0.3',
+      font: '20px furoreregular',
+      marginRight: '5%',
+      marginLeft: '14%'
+    };
     const ledStyle = this.props.location === '/user'
       ? {
         backgroundColor: '#F00',
@@ -26,8 +34,10 @@ const Sidebar = React.createClass({
     return <div className="buttoncontainer">
       <div className="logodiv"><img src="http://cdn.techgyd.com/eye-bee-m.jpg" style={{ width: '50%', marginTop: '10%' }} /></div>
       <div className="buttondiv">
-      <span style={{fontFamily: 'furoreregular'}}>user</span>
-        <div className="led" style={ledStyle} />
+        <div className="ledcontainer">
+          <span style={userlabelStyle}>user</span>
+          <div className="led" style={ledStyle} />
+        </div>
         <a
           className="button tick"
           onTouchTap={this.handleButton}

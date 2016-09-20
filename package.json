@@ -9,7 +9,7 @@
     "url": ""
   },
   "scripts": {
-    "heroku-postbuild": "brunch build --production",
+    "heroku-postbuild": "brunch build --production; knex migrate:latest",
     "deploy": "rm -rf public; brunch build --production; surge public",
     "knex": "knex",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",

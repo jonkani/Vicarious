@@ -6,6 +6,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'furoreregular';
+    src: url('Furore-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #app {
   height: 100%;
 }
@@ -80,6 +87,14 @@ html, body {
   align-items: center;
   height: 100%;
   width: 100%;
+}
+
+.ledcontainer {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .mastercontainer {
