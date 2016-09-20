@@ -125,7 +125,10 @@ const App = React.createClass({
               </div>
             </div>
           </div>
-          <Sidebar setSize={this.setSize} />
+          <Sidebar
+            location={this.props.location.pathname}
+            setSize={this.setSize}
+          />
         </div>
       </div>
     </div>;
