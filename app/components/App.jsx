@@ -128,6 +128,7 @@ const App = React.createClass({
           <Sidebar
             location={this.props.location.pathname}
             setSize={this.setSize}
+            searchSize={this.state.searchSize}
           />
         </div>
       </div>

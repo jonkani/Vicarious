@@ -121,8 +121,8 @@ const SearchMap = React.createClass({
       <div className="listparent">
         {listDisplay}
         <div className="listcontainer">
-          {resultsList.map((image) => {
-            return <Card key={image.id}>
+          {resultsList.map((image, index) => {
+            return <Card key={index}>
               <CardHeader title={image.title} />
               <CardActions>
                 <RaisedButton
