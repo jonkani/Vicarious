@@ -7,6 +7,7 @@ import {
 } from 'react-google-maps';
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
+import mapStyle from './mapStyle.js';
 
 const SearchMap = React.createClass({
   getInitialState() {
@@ -100,7 +101,7 @@ const SearchMap = React.createClass({
                 center={center}
                 defaultZoom={3}
                 onClick={this.handleClick}
-                options={{ streetViewControl: false, mapTypeControl: false }}
+                defaultOptions={{ styles: mapStyle, streetViewControl: false, mapTypeControl: false }}
               >
               {resultsList.map((image, index) => {
                 return <Marker
