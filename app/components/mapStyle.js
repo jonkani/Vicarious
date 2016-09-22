@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const mapStyle = [
     {
         "featureType": "all",

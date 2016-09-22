@@ -13,6 +13,15 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'dpcomicregular';
+    src: url('dpcomic-webfont.woff2') format('woff2'),
+         url('dpcomic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 #app {
   height: 100%;
 }
@@ -68,16 +77,52 @@ html, body {
   width: 95%;
 }
 
+.headbutton {
+  width: 20%;
+  height: 80%;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  box-shadow: 0px 0px 8px 4px #7Cbdbd;
+  border: 3px solid #3acaec;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.headcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+  border-bottom: 4px solid #3acaec;
+}
+
+.headlabel {
+  margin-top: 1.5%;
+  width: 60%;
+  margin-left: 6%;
+  margin-right: 6%;
+  color: #3acaec;
+  font-family: dpcomicregular;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 .listparent {
-  height: 30rem;
-  width: 20rem;
-  background-color: indigo;
+  height: 96%;
+  max-height: 94.5%;
+  width: 30%;
+  background-color: black;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 4px #7Cbdbd;
+  border: 4px solid #3acaec;
+  border-radius: 5px;
 }
 
 .listcontainer {
+  max-height: 80%;
   overflow: auto;
-  height: 20rem;
-  width: 20rem;
 }
 
 .loginform {
@@ -128,6 +173,11 @@ html, body {
   width: 30rem;
   margin-left: 2%;
   margin-right: 2%;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 4px #7Cbdbd;
+  border: 4px solid #3acaec;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .midmonitor {
@@ -204,9 +254,11 @@ html, body {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  height: 100%;
 }
 
 .searchscreen {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -230,10 +282,44 @@ html, body {
 
 .gradient {
   height: 100%;
-  background-image:
-    url(http://1nova.com/wallpapers/wp-content/uploads/sites/34/2015/02/Retro-80s-Arcade-Game.jpg);
+  background: url(https://i.ytimg.com/vi/DL1Gv4nCtkI/maxresdefault.jpg);
+  -webkit-animation:100s scroll infinite linear;
+  -moz-animation:100s scroll infinite linear;
+  -o-animation:100s scroll infinite linear;
+  -ms-animation:100s scroll infinite linear;
+  animation:100s scroll infinite linear;
   background-size: cover;
 }
+@-webkit-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@-moz-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@-o-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@-ms-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
 
 .logo{
   font: 100 15vh "setback_tt_brkregular";

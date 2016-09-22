@@ -7,28 +7,33 @@ import {
 } from 'react-google-maps';
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
+import StarIcon from './StarIcon';
 import mapStyle from './mapStyle.js';
 
 const SearchMap = React.createClass({
   getInitialState() {
     return {
+      hover: false,
       windowPosition: null,
       windowPhoto: {},
       zoom: 0
     };
   },
+
   handleDisplay() {
     const image = Object.assign({}, this.state.windowPhoto);
 
     this.handleInfoClick();
     this.props.setDisplay(image);
   },
+
   handleClick(event) {
     const lat = event.latLng.lat();
     const lng = event.latLng.lng();
 
     this.props.imageSearch({ lat, lng });
   },
+
   handleInfoClick(photo) {
     if (!photo) {
       this.setState({ windowPosition: null, windowPhoto: {}});
@@ -49,6 +54,14 @@ const SearchMap = React.createClass({
       this.props.getFavorites();
     }
     this.props.toggleFavorites();
+  },
+
+  handleEnter() {
+    this.setState({ hover: true });
+  },
+
+  handleLeave() {
+    this.setState({ hover: false });
   },
 
   render() {
@@ -73,13 +86,33 @@ const SearchMap = React.createClass({
     ? this.props.searchLocation
     : { lat: 40.797245, lng: -99.336877 };
     const listDisplay = this.props.displayFavorites && document.cookie
-    ? <div>
-      <h3>Favorites</h3>
-      <RaisedButton label="Search" onClick={this.handleToggle} />
+    ? <div className="headcontainer">
+      <span className="headlabel">Favorites</span>
+      <span
+        className="headbutton"
+        onClick={this.handleToggle}
+        onMouseEnter={this.handleEnter}
+        onMouseLeave={this.handleLeave}
+      >
+        <StarIcon
+          fill={this.state.hover ? '#fd00ff' : '#3acaec'}
+          stroke={this.state.hover ? '#fd00ff' : '#3acaec'}
+        />
+      </span>
     </div>
-    : <div>
-      <h3>Search Results</h3>
-      <RaisedButton label="Favorites" onClick={this.handleToggle} />
+    : <div className="headcontainer">
+      <span className="headlabel">Search Results</span>
+      <span
+        className="headbutton"
+        onClick={this.handleToggle}
+        onMouseEnter={this.handleEnter}
+        onMouseLeave={this.handleLeave}
+      >
+        <StarIcon
+          fill={this.state.hover ? '#fd00ff' : '#3acaec'}
+          stroke={this.state.hover ? '#fd00ff' : '#3acaec'}
+        />
+      </span>
     </div>;
     const resultsList = this.props.displayFavorites && document.cookie
     ? this.props.favorites
@@ -99,21 +132,25 @@ const SearchMap = React.createClass({
             googleMapElement={
               <GoogleMap
                 center={center}
+                defaultOptions={{
+                  styles: mapStyle,
+                  streetViewControl: false,
+                  mapTypeControl: false
+                }}
                 defaultZoom={3}
                 onClick={this.handleClick}
-                defaultOptions={{ styles: mapStyle, streetViewControl: false, mapTypeControl: false }}
               >
-              {resultsList.map((image, index) => {
-                return <Marker
-                  key={index}
-                  onClick={() => (this.handleInfoClick(image))}
-                  position={{
-                    lat: Number.parseFloat(image.latitude),
-                    lng: Number.parseFloat(image.longitude)
-                  }}
-                />;
-              })}
-              {infoWindow}
+                {resultsList.map((image, index) => {
+                  return <Marker
+                    key={index}
+                    onClick={() => (this.handleInfoClick(image))}
+                    position={{
+                      lat: Number.parseFloat(image.latitude),
+                      lng: Number.parseFloat(image.longitude)
+                    }}
+                  />;
+                })}
+                {infoWindow}
               </GoogleMap>
           }
           />
