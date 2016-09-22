@@ -1,6 +1,5 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
-
 const Sidebar = React.createClass({
   handleSize(event) {
     if (event.target.innerHTML === 'small') {

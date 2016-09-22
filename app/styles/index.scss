@@ -5,18 +5,23 @@
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: 'furoreregular';
     src: url('Furore-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: 'dpcomicregular';
     src: url('dpcomic-webfont.woff2') format('woff2'),
          url('dpcomic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'novemberregular';
+    src: url('novem___-webfont.woff2') format('woff2'),
+         url('novem___-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -105,12 +110,36 @@ html, body {
   margin-right: 6%;
   color: #3acaec;
   font-family: dpcomicregular;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-align: center;
 }
 
+.headcard {
+  width: 100%;
+  height: 4.5rem;
+  margin: 2% 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid #3acaec;
+  border-bottom: 4px solid #3acaec;
+}
+
+.headcardbutton {
+  height: 80%;
+  margin-right: 3%;
+}
+
+.headcardtitle {
+  font-family: novemberregular;
+  color: #e3e3e3;
+  margin-left: 3%;
+  width: 70%;
+}
+
 .listparent {
-  height: 96%;
+  height: 94.5%;
   max-height: 94.5%;
   width: 30%;
   background-color: black;
@@ -121,7 +150,7 @@ html, body {
 }
 
 .listcontainer {
-  max-height: 80%;
+  max-height: 89%;
   overflow: auto;
 }
 

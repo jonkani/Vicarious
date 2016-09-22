@@ -5,10 +5,11 @@ import {
   InfoWindow,
   Marker
 } from 'react-google-maps';
+import ArrowIcon from './ArrowIcon';
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
-import StarIcon from './StarIcon';
 import SearchIcon from './SearchIcon';
+import StarIcon from './StarIcon';
 import mapStyle from './mapStyle.js';
 
 const SearchMap = React.createClass({
@@ -102,7 +103,7 @@ const SearchMap = React.createClass({
       </span>
     </div>
     : <div className="headcontainer">
-      <span className="headlabel">Search Results</span>
+      <span className="headlabel">Results</span>
       <span
         className="headbutton"
         onClick={this.handleToggle}
@@ -161,15 +162,14 @@ const SearchMap = React.createClass({
         {listDisplay}
         <div className="listcontainer">
           {resultsList.map((image, index) => {
-            return <Card key={index}>
-              <CardHeader title={image.title} />
-              <CardActions>
-                <RaisedButton
-                  label="Go!"
-                  onClick={() => (this.handleInfoClick(image))}
-                />
-              </CardActions>
-            </Card>;
+            return <div className="headcard" key={index}>
+              <span className="headcardtitle">{image.title}</span>
+              <div
+                className="headcardbutton"
+                onClick={() => (this.handleInfoClick(image))}>
+                <ArrowIcon />
+              </div>
+            </div>;
           })}
         </div>
       </div>
