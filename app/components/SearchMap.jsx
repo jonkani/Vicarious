@@ -1,4 +1,3 @@
-import { Card, CardActions, CardHeader } from 'material-ui/Card';
 import {
   GoogleMap,
   GoogleMapLoader,
@@ -6,7 +5,6 @@ import {
   Marker
 } from 'react-google-maps';
 import ArrowIcon from './ArrowIcon';
-import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import SearchIcon from './SearchIcon';
 import StarIcon from './StarIcon';
@@ -15,6 +13,7 @@ import mapStyle from './mapStyle.js';
 const SearchMap = React.createClass({
   getInitialState() {
     return {
+      buttonHover: 0,
       hover: false,
       windowPosition: null,
       windowPhoto: {},
@@ -64,6 +63,14 @@ const SearchMap = React.createClass({
 
   handleLeave() {
     this.setState({ hover: false });
+  },
+
+  handleButtonEnter(event) {
+    this.setState({ buttonHover: event.currentTarget.getAttribute('value') });
+  },
+
+  handleButtonLeave() {
+    this.setState({ buttonHover: 0 });
   },
 
   render() {
@@ -166,8 +173,17 @@ const SearchMap = React.createClass({
               <span className="headcardtitle">{image.title}</span>
               <div
                 className="headcardbutton"
-                onClick={() => (this.handleInfoClick(image))}>
-                <ArrowIcon />
+                onClick={() => (this.handleInfoClick(image))}
+                onMouseEnter={this.handleButtonEnter}
+                onMouseLeave={this.handleButtonLeave}
+                value={image.id}
+              >
+                <ArrowIcon
+                  stroke={
+                    this.state.buttonHover === image.id
+                    ? '#fd00ff'
+                    : 'none'}
+                />
               </div>
             </div>;
           })}
