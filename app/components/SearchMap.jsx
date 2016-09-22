@@ -8,6 +8,7 @@ import {
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import StarIcon from './StarIcon';
+import SearchIcon from './SearchIcon';
 import mapStyle from './mapStyle.js';
 
 const SearchMap = React.createClass({
@@ -94,7 +95,7 @@ const SearchMap = React.createClass({
         onMouseEnter={this.handleEnter}
         onMouseLeave={this.handleLeave}
       >
-        <StarIcon
+        <SearchIcon
           fill={this.state.hover ? '#fd00ff' : '#3acaec'}
           stroke={this.state.hover ? '#fd00ff' : '#3acaec'}
         />
