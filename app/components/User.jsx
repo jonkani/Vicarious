@@ -90,7 +90,12 @@ const User = React.createClass({
     let loginBody;
 
     if (document.cookie) {
-      loginBody = <button onClick={this.handleLogout}>Logout</button>;
+      loginBody = <span
+        className="logout"
+        onClick={this.handleLogout}
+      >
+        Logout?
+      </span>;
     }
     else {
       loginBody = <div className="formcontainer">

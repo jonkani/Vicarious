@@ -36,6 +36,13 @@ html, body {
   height: 100%;
 }
 
+h2 {
+  font-size: 3.5rem;
+  font-family: dpcomicregular;
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000;
+}
+
 .buttoncontainer {
   border-left-width: 2px;
   border-left-style: solid;
@@ -156,8 +163,8 @@ html, body {
 }
 
 .listparent {
-  height: 94.5%;
-  max-height: 94.5%;
+  height: 92%;
+  max-height: 92%;
   width: 30%;
   background-color: black;
   border-radius: 15px;
@@ -185,15 +192,14 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20%;
+  margin-top: 30%;
   width: 50%;
   height: 25%;
-  border: 5px solid black;
+  border: 5px solid rgba(0, 0, 0, .5);
+  border-radius: 5%;
   box-shadow:
-  inset -2px 2px 0px 0px rgba(#fff, 0.1),
-  inset 2px -2px 0px 0px rgba(#111, 0.2),
-  0px 5px 5px 1px rgba(0, 0, 0, .3),
-  0px 10px 10px 1px rgba(51, 47, 46, 0.5);
+    3px 8px 10px 0px rgba(0, 0, 0, .3),
+    inset 0px -3px 1px 1px rgba(51, 47, 46, 0.5);
 }
 
 .logodiv {
@@ -206,7 +212,18 @@ html, body {
 
 .logotext {
   font-size: 400%;
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  color: black;
+  opacity: 0.5;
   font-family: setback_tt_brkregular
+}
+
+.logout {
+  font-family: novemberregular;
+  font-size: 4rem;
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 10px 3px #000;
+  cursor: pointer;
 }
 
 .formcontainer {
@@ -235,8 +252,8 @@ html, body {
 }
 
 .mapcontainer {
-  height: 30rem;
-  width: 30rem;
+  height: 92%;
+  width: 50%;
   margin-left: 2%;
   margin-right: 2%;
   border-radius: 15px;
@@ -530,10 +547,15 @@ html, body {
 	background-image: -webkit-linear-gradient(top, #585650, #53514b);
 	background-image: linear-gradient(top, #2b241c, #53514b);
 	border-radius: 50%;
-	box-shadow:
-    0px 8px 10px 0px rgba(0, 0, 0, .3),
-    inset 0px 4px 1px 1px #4e4c46,
-    inset 0px -3px 1px 1px rgba(51, 47, 46, 0.5);
+  box-shadow:
+    inset -2px 2px 0px 0px rgba(#fff, 0.1),
+    inset 2px -2px 0px 0px rgba(#111, 0.2),
+    0px 5px 5px 1px rgba(0, 0, 0, .3),
+    0px 10px 10px 1px rgba(51, 47, 46, 0.5);
+	// box-shadow:
+  //   0px 8px 10px 0px rgba(0, 0, 0, .3),
+  //   inset 0px 4px 1px 1px #4e4c46,
+  //   inset 0px -3px 1px 1px rgba(51, 47, 46, 0.5);
   cursor: pointer;
 	height: 70px;
 	width: 70px;
