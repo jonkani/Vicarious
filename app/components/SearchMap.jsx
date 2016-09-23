@@ -4,10 +4,8 @@ import {
   InfoWindow,
   Marker
 } from 'react-google-maps';
-import ArrowIcon from './ArrowIcon';
+import ListDisplay from './ListDisplay';
 import React from 'react';
-import SearchIcon from './SearchIcon';
-import StarIcon from './StarIcon';
 import mapStyle from './mapStyle.js';
 
 const SearchMap = React.createClass({
@@ -94,35 +92,6 @@ const SearchMap = React.createClass({
     const center = this.props.searchLocation.lat
     ? this.props.searchLocation
     : { lat: 40.797245, lng: -99.336877 };
-    const listDisplay = this.props.displayFavorites && document.cookie
-    ? <div className="headcontainer">
-      <span className="headlabel">Favorites</span>
-      <span
-        className="headbutton"
-        onClick={this.handleToggle}
-        onMouseEnter={this.handleEnter}
-        onMouseLeave={this.handleLeave}
-      >
-        <SearchIcon
-          fill={this.state.hover ? '#fd00ff' : '#3acaec'}
-          stroke={this.state.hover ? '#fd00ff' : '#3acaec'}
-        />
-      </span>
-    </div>
-    : <div className="headcontainer">
-      <span className="headlabel">Results</span>
-      <span
-        className="headbutton"
-        onClick={this.handleToggle}
-        onMouseEnter={this.handleEnter}
-        onMouseLeave={this.handleLeave}
-      >
-        <StarIcon
-          fill={this.state.hover ? '#fd00ff' : '#3acaec'}
-          stroke={this.state.hover ? '#fd00ff' : '#3acaec'}
-        />
-      </span>
-    </div>;
     const resultsList = this.props.displayFavorites && document.cookie
     ? this.props.favorites
     : this.props.imageList;
@@ -165,30 +134,15 @@ const SearchMap = React.createClass({
           />
         </section>
       </div>
-      <div className="listparent">
-        {listDisplay}
-        <div className="listcontainer">
-          {resultsList.map((image, index) => {
-            return <div className="headcard" key={index}>
-              <span className="headcardtitle">{image.title}</span>
-              <div
-                className="headcardbutton"
-                onClick={() => (this.handleInfoClick(image))}
-                onMouseEnter={this.handleButtonEnter}
-                onMouseLeave={this.handleButtonLeave}
-                value={image.id}
-              >
-                <ArrowIcon
-                  stroke={
-                    this.state.buttonHover === image.id
-                    ? '#fd00ff'
-                    : 'none'}
-                />
-              </div>
-            </div>;
-          })}
-        </div>
-      </div>
+      <ListDisplay
+        displayFavorites={this.props.displayFavorites}
+        favorites={this.props.favorites}
+        getFavorites={this.props.getFavorites}
+        handleInfoClick={this.handleInfoClick}
+        imageList={this.props.imageList}
+        resultsList={resultsList}
+        toggleFavorites={this.props.toggleFavorites}
+      />
     </div>;
   }
 });

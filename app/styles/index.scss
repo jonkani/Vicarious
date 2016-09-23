@@ -181,12 +181,32 @@ html, body {
   flex-wrap: wrap;
 }
 
+.logobox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+  width: 50%;
+  height: 25%;
+  border: 5px solid black;
+  box-shadow:
+  inset -2px 2px 0px 0px rgba(#fff, 0.1),
+  inset 2px -2px 0px 0px rgba(#111, 0.2),
+  0px 5px 5px 1px rgba(0, 0, 0, .3),
+  0px 10px 10px 1px rgba(51, 47, 46, 0.5);
+}
+
 .logodiv {
   width: 100%;
   height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.logotext {
+  font-size: 400%;
+  font-family: setback_tt_brkregular
 }
 
 .formcontainer {
@@ -538,7 +558,7 @@ html, body {
 .led {
   width: 19px;
   height: 19px;
-  background-color: #d01111;
+  background-color: #a00d0d;
   border-radius: 50%;
   box-shadow:
     rgba(0, 0, 0, 0.2) 0 -1px 7px 1px,

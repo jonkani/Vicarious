@@ -65,7 +65,11 @@ const Sidebar = React.createClass({
       : {};
 
     return <div className="buttoncontainer">
-      <div className="logodiv"><img src="http://cdn.techgyd.com/eye-bee-m.jpg" style={{ width: '50%', marginTop: '10%' }} /></div>
+      <div className="logodiv">
+        <div className="logobox">
+          <span className="logotext">VR</span>
+        </div>
+      </div>
       <div className="buttondiv">
         <div className="ledcontainer">
           <span className="sidebarlabel" style={userLabelStyle}>user</span>
