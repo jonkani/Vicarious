@@ -11,7 +11,8 @@ const App = React.createClass({
       imageList: [],
       imageView: {},
       favorites: [],
-      displayFavorites: false
+      displayFavorites: false,
+      loaded: false
     };
   },
 
@@ -102,6 +103,10 @@ const App = React.createClass({
     browserHistory.push('/display');
   },
 
+  loadDisplay(bool) {
+    this.setState({ loaded: bool });
+  },
+
   render() {
     return <div className="mastercontainer">
       <div className="monitorborderborder">
@@ -115,20 +120,22 @@ const App = React.createClass({
                   imageList: this.state.imageList,
                   setCenter: this.setCenter,
                   setDisplay: this.setDisplay,
+                  setLocation: this.setLocation,
                   imageView: this.state.imageView,
                   getFavorites: this.getFavorites,
                   displayFavorites: this.state.displayFavorites,
                   toggleFavorites: this.toggleFavorites,
                   addFavorite: this.addFavorite,
-                  favorites: this.state.favorites
+                  favorites: this.state.favorites,
+                  loadDisplay: this.loadDisplay
                 })}
               </div>
             </div>
           </div>
           <Sidebar
             location={this.props.location.pathname}
-            setSize={this.setSize}
             searchSize={this.state.searchSize}
+            setSize={this.setSize}
           />
         </div>
       </div>

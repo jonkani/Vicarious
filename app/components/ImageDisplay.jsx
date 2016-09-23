@@ -2,8 +2,6 @@ import 'aframe';
 import { Entity, Scene } from 'aframe-react';
 import BackIcon from './BackIcon';
 import FavoriteIcon from './FavoriteIcon';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import NavBack from 'material-ui/svg-icons/navigation/arrow-back';
 import React from 'react';
 import { browserHistory } from 'react-router';
 const ImageDisplay = React.createClass({
@@ -11,6 +9,17 @@ const ImageDisplay = React.createClass({
     if (!this.props.imageView.id) {
       browserHistory.push('/');
     }
+  },
+
+  componentWillUnmount() {
+    this.props.loadDisplay(false);
+  },
+
+  handleLoad() {
+    const buttons = document.querySelectorAll('.displaybutton');
+
+    buttons.forEach((button) => { button.setAttribute('style', ''); });
+    this.props.loadDisplay(true);
   },
 
   handleBack() {
@@ -22,8 +31,8 @@ const ImageDisplay = React.createClass({
   },
 
   render() {
+    const buttonDisplay = this.props.loaded ? {} : { display: 'none' };
     const photo = this.props.imageView;
-    const loaded = ''
     let url = '';
     let favoriteButton = null;
 
@@ -32,8 +41,9 @@ const ImageDisplay = React.createClass({
     }
     if (document.cookie) {
       favoriteButton = <div
-        className="displayfavbutton"
+        className="displayfav displaybutton"
         onTouchTap={this.handleFavorite}
+        style={buttonDisplay}
       >
         <FavoriteIcon />
       </div>;
@@ -50,7 +60,7 @@ const ImageDisplay = React.createClass({
       }}
     >
       <Scene
-        onLoaded={(event) => (console.log(event))}
+        onLoaded={this.handleLoad}
         vr-mode-ui={{ enabled: 'false' }}
       >
         <a-assets>
@@ -68,8 +78,9 @@ const ImageDisplay = React.createClass({
         />
       </Scene>
       <div
-        className="displaybackbutton"
+        className="displayback displaybutton"
         onTouchTap={this.handleBack}
+        style={buttonDisplay}
       >
         <BackIcon />
       </div>
