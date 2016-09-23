@@ -57,7 +57,7 @@ const App = React.createClass({
           photos = res.data;
         }
 
-        this.setState({ imageList: photos });
+        this.setState({ imageList: photos, displayFavorites: false });
       })
       .catch((err) => {
         console.log(err);
