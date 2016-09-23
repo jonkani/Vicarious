@@ -1,5 +1,7 @@
 import 'aframe';
 import { Entity, Scene } from 'aframe-react';
+import BackIcon from './BackIcon';
+import FavoriteIcon from './FavoriteIcon';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import NavBack from 'material-ui/svg-icons/navigation/arrow-back';
 import React from 'react';
@@ -11,17 +13,17 @@ const ImageDisplay = React.createClass({
     }
   },
 
-  handleButton() {
+  handleBack() {
     browserHistory.push('/');
   },
 
   handleFavorite() {
-    console.log('yes');
     this.props.addFavorite();
   },
 
   render() {
     const photo = this.props.imageView;
+    const loaded = ''
     let url = '';
     let favoriteButton = null;
 
@@ -29,18 +31,12 @@ const ImageDisplay = React.createClass({
       url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.originalSecret}_o.${photo.originalFormat}`;
     }
     if (document.cookie) {
-      favoriteButton = <FloatingActionButton
+      favoriteButton = <div
+        className="displayfavbutton"
         onTouchTap={this.handleFavorite}
-        style={{
-          color: 'red',
-          zIndex: 999,
-          position: 'fixed',
-          bottom: '2%',
-          left: '8%'
-        }}
-        zDepth={0}
       >
-      </FloatingActionButton>;
+        <FavoriteIcon />
+      </div>;
     }
 
     return <div
@@ -55,7 +51,7 @@ const ImageDisplay = React.createClass({
     >
       <Scene
         onLoaded={(event) => (console.log(event))}
-        vr-mode-ui={{ enabled: 'true' }}
+        vr-mode-ui={{ enabled: 'false' }}
       >
         <a-assets>
           <img crossOrigin="anonymous" id="displayimg" src={url} />
@@ -71,18 +67,12 @@ const ImageDisplay = React.createClass({
           scale={"1 1 -1"}
         />
       </Scene>
-      <FloatingActionButton
-        onTouchTap={this.handleButton}
-        style={{
-          zIndex: 999,
-          position: 'fixed',
-          bottom: '2%',
-          left: '2%'
-        }}
-        zDepth={0}
+      <div
+        className="displaybackbutton"
+        onTouchTap={this.handleBack}
       >
-        <NavBack />
-      </FloatingActionButton>
+        <BackIcon />
+      </div>
       {favoriteButton}
     </div>;
   }

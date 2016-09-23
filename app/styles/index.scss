@@ -82,6 +82,26 @@ html, body {
   width: 95%;
 }
 
+.displaybackbutton {
+  z-index: 999;
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  height: 8%;
+  width: 8%;
+  cursor: pointer;
+}
+
+.displayfavbutton {
+  z-index: 999;
+  position: fixed;
+  bottom: 12%;
+  left: 2%;
+  height: 8%;
+  width: 8%;
+  cursor: pointer;
+}
+
 .headbutton {
   width: 20%;
   height: 80%;
