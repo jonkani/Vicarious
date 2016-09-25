@@ -11,7 +11,7 @@ const schema = Joi.object({
   password: Joi.string()
     .trim()
     .min(8)
-    .error(new Error('Warning: At least 8 characters required!'))
+    .error(new Error('Error: Password must contain 8+ characters!'))
 });
 
 const User = React.createClass({
@@ -26,22 +26,24 @@ const User = React.createClass({
         password: '',
         confirm: ''
       },
-      errors: {}
+      errors: { reg: {}, login: {}}
     };
   },
 
   handleBlur(event) {
     const { name, value } = event.target;
+    const topic = name.split('.')[0];
+    const key = name.split('.')[1];
     const nextErrors = Object.assign({}, this.state.errors);
-    const result = Joi.validate({ [name.split('.')[1]]: value }, schema);
+    const result = Joi.validate({ [key]: value }, schema);
 
     if (result.error) {
-      nextErrors[name] = result.error.message;
+      nextErrors[topic][key] = result.error.message;
 
       return this.setState({ errors: nextErrors });
     }
 
-    delete nextErrors[name];
+    delete nextErrors[topic][key];
 
     this.setState({ errors: nextErrors });
   },
@@ -117,6 +119,18 @@ const User = React.createClass({
 
   render() {
     let loginBody;
+    if (this.state.errors.keys) {
+
+    }
+    const headStyle = {
+      fontSize: '3.5rem',
+      fontFamily: 'dpcomicregular',
+      color: '#fee',
+      textShadow: '0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000',
+      width: '100%',
+      margin: '0 0',
+      textAlign: 'center'
+    };
 
     if (document.cookie) {
       loginBody = <span
@@ -130,12 +144,7 @@ const User = React.createClass({
       loginBody = <div className="formcontainer">
         <form className="loginform">
           <h2
-            style={{
-              color: 'white',
-              width: '100%',
-              margin: '0 0',
-              textAlign: 'center'
-            }}
+            style={headStyle}
           >
             Login
           </h2>
@@ -159,12 +168,7 @@ const User = React.createClass({
         </form>
         <form className="loginform">
           <h2
-            style={{
-              color: 'white',
-              width: '100%',
-              margin: '0 0',
-              textAlign: 'center'
-            }}
+            style={headStyle}
           >
             Register
           </h2>
