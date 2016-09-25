@@ -4,13 +4,15 @@ const express = require('express');
 const boom = require('boom');
 const knex = require('../knex');
 const { checkAuth } = require('./middleware');
+const ev = require('express-validation');
+const validations = require('../validations/users');
 const bcrypt = require('bcrypt-as-promised');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
-router.post('/users', (req, res, next) => {
+router.post('/users', ev(validations.post), (req, res, next) => {
   const { email, password } = req.body;
 
   knex('users')

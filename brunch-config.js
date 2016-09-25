@@ -24,5 +24,9 @@ module.exports = {
 
   server: {
     command: 'nodemon --ignore app --ignore public server.js'
+  },
+
+  paths: {
+    watched: ['app', 'vendor']
   }
 };
