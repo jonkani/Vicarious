@@ -119,9 +119,6 @@ const User = React.createClass({
 
   render() {
     let loginBody;
-    if (this.state.errors.keys) {
-
-    }
     const headStyle = {
       fontSize: '3.5rem',
       fontFamily: 'dpcomicregular',
@@ -130,6 +127,23 @@ const User = React.createClass({
       width: '100%',
       margin: '0 0',
       textAlign: 'center'
+    };
+    const errorGen = (topic) => {
+      const errName = Object.keys(this.state.errors[topic])[0];
+
+      if (errName) {
+        const newStyle = {
+          fontSize: '2.5rem',
+          textShadow: '0 -40px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 10px 3px #000'
+        };
+        const errStyle = Object.assign({}, headStyle, newStyle);
+
+        return <h2 style={errStyle}>{this.state.errors[topic][errName]}</h2>;
+      }
+
+      return <h2 style={headStyle}>
+        {topic === 'login' ? 'Login' : 'Register '}
+      </h2>;
     };
 
     if (document.cookie) {
@@ -143,11 +157,7 @@ const User = React.createClass({
     else {
       loginBody = <div className="formcontainer">
         <form className="loginform">
-          <h2
-            style={headStyle}
-          >
-            Login
-          </h2>
+          {errorGen('login')}
           <input
             name="login.email"
             onBlur={this.handleBlur}
@@ -167,11 +177,7 @@ const User = React.createClass({
           <button onClick={this.handleLogin}>Login</button>
         </form>
         <form className="loginform">
-          <h2
-            style={headStyle}
-          >
-            Register
-          </h2>
+          {errorGen('reg')}
           <input
             name="reg.email"
             onBlur={this.handleBlur}
