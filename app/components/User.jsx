@@ -51,6 +51,28 @@ const User = React.createClass({
   handleRegister(event) {
     event.preventDefault();
 
+    const result = Joi.validate(this.state.login, schema, {
+      abortEarly: false,
+      allowUnknown: true
+    });
+
+    if (result.error) {
+      const message = result.error.message;
+      let valError;
+
+      if (message[0] === 'W') {
+        valError = { email: message };
+      }
+      else {
+        valError = { password: message };
+      }
+      const nextErrors = Object.assign({}, this.state.errors);
+
+      nextErrors.reg = valError;
+
+      return this.setState({ errors: nextErrors });
+    }
+
     const reg = {
       email: this.state.reg.email,
       password: this.state.reg.password
@@ -70,6 +92,28 @@ const User = React.createClass({
 
   handleLogin(event) {
     event.preventDefault();
+
+    const result = Joi.validate(this.state.login, schema, {
+      abortEarly: false,
+      allowUnknown: true
+    });
+
+    if (result.error) {
+      const message = result.error.message;
+      let valError;
+
+      if (message[0] === 'W') {
+        valError = { email: message };
+      }
+      else {
+        valError = { password: message };
+      }
+      const nextErrors = Object.assign({}, this.state.errors);
+
+      nextErrors.login = valError;
+
+      return this.setState({ errors: nextErrors });
+    }
 
     const login = this.state.login;
 
