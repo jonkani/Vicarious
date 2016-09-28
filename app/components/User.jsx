@@ -48,6 +48,20 @@ const User = React.createClass({
     this.setState({ errors: nextErrors });
   },
 
+  handleConfirmBlur() {
+    const nextErrors = Object.assign({}, this.state.errors);
+
+    if (this.state.reg.password !== this.state.reg.confirm) {
+      nextErrors.reg.confirm = 'Danger: Passwords do not match!';
+
+      return this.setState({ errors: nextErrors });
+    }
+
+    delete nextErrors.reg.confirm;
+
+    this.setState({ errors: nextErrors });
+  },
+
   handleRegister(event) {
     event.preventDefault();
 
@@ -131,18 +145,6 @@ const User = React.createClass({
 
     axios.delete('/api/token')
     .then(() => {
-      const newLogin = Object.assign(
-        {},
-        this.state.login,
-        { email: '', password: '' }
-      );
-      const newReg = Object.assign(
-        {},
-        this.state.login,
-        { email: '', password: '', confirm: '' }
-      );
-
-      this.setState({ login: newLogin, reg: newReg });
       browserHistory.push('/');
     })
     .catch((err) => {
@@ -240,6 +242,7 @@ const User = React.createClass({
           />
           <input
             name="reg.confirm"
+            onBlur={this.handleConfirmBlur}
             onChange={this.handleTextChange}
             placeholder="Confirm Password"
             type="password"
