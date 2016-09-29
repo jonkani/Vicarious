@@ -65,10 +65,11 @@ const User = React.createClass({
   handleRegister(event) {
     event.preventDefault();
 
-    const result = Joi.validate(this.state.login, schema, {
+    const result = Joi.validate(this.state.reg, schema, {
       abortEarly: false,
       allowUnknown: true
     });
+    const nextErrors = Object.assign({}, this.state.errors);
 
     if (result.error) {
       const message = result.error.message;
@@ -80,9 +81,13 @@ const User = React.createClass({
       else {
         valError = { password: message };
       }
-      const nextErrors = Object.assign({}, this.state.errors);
 
       nextErrors.reg = valError;
+
+      return this.setState({ errors: nextErrors });
+    }
+    else if (this.state.reg.password !== this.state.reg.confirm) {
+      nextErrors.reg.confirm = 'Danger: Passwords do not match!';
 
       return this.setState({ errors: nextErrors });
     }
@@ -169,7 +174,7 @@ const User = React.createClass({
       fontSize: '3.5rem',
       fontFamily: 'dpcomicregular',
       color: '#fee',
-      textShadow: '0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000',
+      textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000',
       width: '100%',
       margin: '0 0',
       textAlign: 'center'
@@ -180,7 +185,7 @@ const User = React.createClass({
       if (errName) {
         const newStyle = {
           fontSize: '2.5rem',
-          textShadow: '0 -40px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 10px 3px #000'
+          textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 10px 3px #000'
         };
         const errStyle = Object.assign({}, headStyle, newStyle);
 
