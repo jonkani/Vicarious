@@ -160,7 +160,9 @@ const App = React.createClass({
                 message={this.state.toast.message}
                 onDismiss={this.handleCloseToast}
               />
-              <div className="gradient">
+              <div
+                className={this.state.loaded ? 'gradientoff' : 'gradient'}
+              >
                 {React.cloneElement(this.props.children, {
                   imageSearch: this.imageSearch,
                   searchLocation: this.state.searchLocation,

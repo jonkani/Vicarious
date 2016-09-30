@@ -96,7 +96,7 @@ canvas {
 
 .displaybutton {
   z-index: 999;
-  position: fixed;
+  position: absolute;
   left: 2%;
   height: 8%;
   width: 8%;
@@ -391,6 +391,12 @@ canvas {
   100%{
     background-position:0px -3000px;
   }
+}
+
+.gradientoff {
+  height: 100%;
+  background: url(Scroll.jpg);
+  background-size: cover;
 }
 
 //logo flickering

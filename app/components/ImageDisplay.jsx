@@ -31,7 +31,7 @@ const ImageDisplay = React.createClass({
   },
 
   render() {
-    const buttonDisplay = this.props.loaded ? {} : { display: 'none' };
+    const buttonDisplay = { display: 'none' };
     const photo = this.props.imageView;
     let url = '';
     let favoriteButton = null;
