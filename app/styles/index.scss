@@ -193,7 +193,7 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30%;
+  margin-top: 40%;
   width: 50%;
   height: 25%;
   border: 5px solid rgba(0, 0, 0, .5);
@@ -212,7 +212,7 @@ canvas {
 }
 
 .logotext {
-  font-size: 400%;
+  font-size: 4rem;
   text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
   color: black;
   opacity: 0.5;
@@ -255,7 +255,7 @@ canvas {
 .mapcontainer {
   height: 92%;
   width: 50%;
-  margin-left: 2%;
+
   margin-right: 2%;
   border-radius: 15px;
   box-shadow: 0px 0px 10px 4px #7Cbdbd;
@@ -336,6 +336,7 @@ canvas {
 .searchcontainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
@@ -401,7 +402,7 @@ canvas {
 
 //logo flickering
 .logo{
-  font: 100 15vh "setback_tt_brkregular";
+  font: 100 7rem "setback_tt_brkregular";
   color: #fee;
   text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000;
 }
@@ -633,5 +634,93 @@ canvas {
     0 0 28px rgba(253,0,255,.9),
     inset 0 0 10px rgba(253,0,255,.7),
     0 2px 0 #000;
+  }
+}
+
+@media (max-width: 1000px) {
+  .searchcontainer {
+    flex-direction: column;
+  }
+
+  .listparent {
+    width: 80%;
+    height: 30%;
+    max-height: 100%;
+  }
+
+  .listcontainer {
+    max-height: 70%;
+  }
+
+  .logo {
+    font: 100 5rem "setback_tt_brkregular";
+  }
+
+  .logobox {
+    margin-top: 60%;
+    width: 60%;
+    height: 20%;
+  }
+
+  .logotext {
+    font-size: 3rem;
+  }
+
+  .headcontainer {
+    height: 25%;
+  }
+
+  .mapcontainer {
+    width: 90%;
+    height: 60%;
+    margin-right: 0;
+    margin-bottom: 3%;
+  }
+}
+
+@media (max-width: 650px) {
+  .logo {
+    font: 100 2.8rem "setback_tt_brkregular";
+  }
+
+  .headlabel {
+    font-size: 1.3rem;
+  }
+  .headcontainer {
+    height: 20%;
+  }
+  .listcontainer {
+    max-height: 77%;
+  }
+
+  .headbutton {
+    width: 22%;
+
+    box-shadow: 0px 0px 4px 2px #7Cbdbd;
+
+  }
+
+  .logotext {
+    font-size: 2rem;
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+    color: black;
+    opacity: 0.5;
+    font-family: setback_tt_brkregular;
+    overflow-wrap: break-word;
+    width: 100%;
+    text-align: center;
+  }
+  .logobox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80%;
+    width: 60%;
+    height: 20%;
+    border: 3px solid rgba(0, 0, 0, .5);
+    border-radius: 5%;
+    box-shadow:
+      1.5px 3px 5.5px 0px rgba(0, 0, 0, .3),
+      inset 0px -1.5px 1px 1px rgba(51, 47, 46, 0.5);
   }
 }
