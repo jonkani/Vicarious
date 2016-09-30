@@ -12,6 +12,10 @@ const ListDisplay = React.createClass({
   },
 
   handleToggle() {
+    if (!document.cookie) {
+      return this.props.openToast('Log in to use favorites!');
+    }
+
     if (this.props.favorites.length === 0) {
       this.props.getFavorites();
     }
@@ -35,7 +39,7 @@ const ListDisplay = React.createClass({
   },
 
   handleArrowClick(image) {
-    this.props.handleInfoClick(image);
+    this.props.onInfoClick(image);
   },
 
   render() {

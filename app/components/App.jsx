@@ -1,4 +1,5 @@
 import { browserHistory, withRouter } from 'react-router';
+import { Notification } from 'react-notification';
 import React from 'react';
 import Sidebar from './Sidebar';
 import axios from 'axios';
@@ -12,7 +13,8 @@ const App = React.createClass({
       imageView: {},
       favorites: [],
       displayFavorites: false,
-      loaded: false
+      loaded: false,
+      toast: { message: '', display: false }
     };
   },
 
@@ -48,6 +50,10 @@ const App = React.createClass({
 
     axios.get('/api/search', { params: search })
       .then((res) => {
+        if (!res.data[0]) {
+          return this.openToast('No results found!');
+        }
+
         let photos = [];
 
         if (res.data[0][0]) {
@@ -60,7 +66,7 @@ const App = React.createClass({
         this.setState({ imageList: photos, displayFavorites: false });
       })
       .catch((err) => {
-        console.log(err);
+        this.openToast(`Whoops! ${err}`);
       });
   },
 
@@ -72,7 +78,7 @@ const App = React.createClass({
         this.setState({ favorites: newFavorites });
       })
       .catch((err) => {
-        console.error(err);
+        this.openToast(`Whoops! ${err}`);
       });
   },
 
@@ -83,9 +89,37 @@ const App = React.createClass({
           this.getFavorites();
         })
         .catch((err) => {
-          console.error(err);
+          this.openToast(`Whoops! ${err}`);
         });
     }
+  },
+
+  openToast(message) {
+    if (this.state.toast.display === true) {
+      const closeToast = Object.assign(
+        {},
+        this.state.toast,
+        { display: false }
+      );
+
+      return this.setState(
+        { toast: closeToast },
+        () => (this.openToast(message))
+      );
+    }
+    const newToast = Object.assign(
+      {},
+      this.state.toast,
+      { message, display: true }
+    );
+
+    return this.setState({ toast: newToast });
+  },
+
+  handleCloseToast() {
+    const newToast = Object.assign({}, this.state.toast, { display: false });
+
+    this.setState({ toast: newToast });
   },
 
   toggleFavorites() {
@@ -113,6 +147,19 @@ const App = React.createClass({
         <div className="monitorborder">
           <div className="midmonitor">
             <div className="monitor">
+              <Notification
+                barStyle={{
+                  position: 'absolute',
+                  zIndex: 10,
+                  border: '2px solid #ff00ff',
+                  borderRadius: '4px'
+                }}
+                className="toast"
+                dismissAfter={4000}
+                isActive={this.state.toast.display}
+                message={this.state.toast.message}
+                onDismiss={this.handleCloseToast}
+              />
               <div className="gradient">
                 {React.cloneElement(this.props.children, {
                   imageSearch: this.imageSearch,
@@ -127,7 +174,8 @@ const App = React.createClass({
                   toggleFavorites: this.toggleFavorites,
                   addFavorite: this.addFavorite,
                   favorites: this.state.favorites,
-                  loadDisplay: this.loadDisplay
+                  loadDisplay: this.loadDisplay,
+                  openToast: this.openToast
                 })}
               </div>
             </div>

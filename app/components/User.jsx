@@ -105,7 +105,7 @@ const User = React.createClass({
       browserHistory.push('/');
     })
     .catch((err) => {
-      console.error(err);
+      this.props.openToast(`Whoops! ${err}`);
     });
   },
 
@@ -140,8 +140,8 @@ const User = React.createClass({
     .then(() => {
       browserHistory.push('/');
     })
-    .catch((err) => {
-      console.error(err);
+    .catch(() => {
+      this.props.openToast('Invalid username/password!');
     });
   },
 
@@ -153,7 +153,7 @@ const User = React.createClass({
       browserHistory.push('/');
     })
     .catch((err) => {
-      console.error(err);
+      this.props.openToast(`Whoops! ${err}`);
     });
   },
 

@@ -11,6 +11,7 @@ const Search = React.createClass({
         getFavorites={this.props.getFavorites}
         imageList={this.props.imageList}
         imageSearch={this.props.imageSearch}
+        openToast={this.props.openToast}
         searchLocation={this.props.searchLocation}
         setCenter={this.props.setCenter}
         setDisplay={this.props.setDisplay}

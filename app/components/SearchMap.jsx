@@ -138,8 +138,9 @@ const SearchMap = React.createClass({
         displayFavorites={this.props.displayFavorites}
         favorites={this.props.favorites}
         getFavorites={this.props.getFavorites}
-        handleInfoClick={this.handleInfoClick}
         imageList={this.props.imageList}
+        onInfoClick={this.handleInfoClick}
+        openToast={this.props.openToast}
         resultsList={resultsList}
         toggleFavorites={this.props.toggleFavorites}
       />
