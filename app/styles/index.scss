@@ -355,7 +355,7 @@ canvas {
   text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
   color: #363430;
   opacity: 0.3;
-  font: 20px furoreregular;
+  font: 1.3rem furoreregular;
   text-align: center;
 }
 
@@ -383,9 +383,9 @@ canvas {
 .gradient {
   height: 100%;
   background: url(Scroll.jpg);
-  -webkit-animation:100s scroll infinite linear;
-  -moz-animation:100s scroll infinite linear;
-  animation:100s scroll infinite linear;
+  -webkit-animation: 100s scroll infinite linear;
+  -moz-animation: 100s scroll infinite linear;
+  animation: 100s scroll infinite linear;
   background-size: cover;
 }
 @-webkit-keyframes scroll{
@@ -408,7 +408,7 @@ canvas {
 
 .gradientoff {
   height: 100%;
-  background: url(Scroll.jpg);
+  background: #000;
   background-size: cover;
 }
 
@@ -690,6 +690,51 @@ canvas {
   }
 }
 
+@media (max-width: 1100px) {
+  .sidebarlabel {
+    font-size: 1.1rem;
+  }
+
+  .sidebardial {
+    font-size: 1.3rem;
+  }
+
+  .sidebaruser {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebarlabel {
+    font-size: 1rem;
+  }
+
+  .sidebardial {
+    font-size: 1.3rem;
+  }
+
+  .sidebaruser {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .led {
+    display: none;
+  }
+
+  .sidebarlabel {
+    margin-left: 7%;
+    margin-right: 7%;
+    font-size: 1.3rem;
+  }
+
+  .sidebaruser {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 650px) {
   .button {
     height: 2rem;
@@ -699,10 +744,6 @@ canvas {
       inset 2px -2px 0px 0px rgba(#111, 0.2),
       0px 2.5px 2.5px 1px rgba(0, 0, 0, .3),
       0px 5px 5px 1px rgba(51, 47, 46, 0.5);
-  }
-
-  .buttoncontainer {
-
   }
 
   .dial {
@@ -715,13 +756,19 @@ canvas {
       0px 10px 10px 1px rgba(51, 47, 46, 0.5);
   }
 
-  .midmonitor {
-
+  .gradient {
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
   }
 
   .logo {
     font: 100 2.8rem "setback_tt_brkregular";
       text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 5px 3px #000;
+  }
+
+  .logo span{
+    animation: none;
   }
 
   .headlabel {
@@ -756,11 +803,16 @@ canvas {
 
   .logobox {
     width: 60%;
-    height: 20%;
+    height: 25%;
+    margin-top: 130%;
     border: 3px solid rgba(0, 0, 0, .5);
     box-shadow:
       1.5px 3px 5.5px 0px rgba(0, 0, 0, .3),
       inset 0px -1.5px 1px 1px rgba(51, 47, 46, 0.5);
+  }
+
+  .monitor {
+    height: 95%;
   }
 
   .sidebarlabel {
@@ -774,10 +826,5 @@ canvas {
   .sidebardial {
     font-size: 0.9rem;
     opacity: 0.5;
-  }
-
-  .sidebaruser {
-    margin-left: 0;
-    margin-right: 0;
   }
 }

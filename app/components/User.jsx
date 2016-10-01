@@ -174,7 +174,7 @@ const User = React.createClass({
       fontSize: '3.5rem',
       fontFamily: 'dpcomicregular',
       color: '#fee',
-      textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000',
+      textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 5px 3px #000',
       width: '100%',
       margin: '0 0',
       textAlign: 'center'

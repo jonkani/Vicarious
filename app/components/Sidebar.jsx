@@ -77,14 +77,14 @@ const Sidebar = React.createClass({
               onTouchTap={this.handleSize}
               style={pointer}
             >
-              {window.innerWidth > 650 ? 'large' : 'XL'}
+              {window.innerWidth > 800 ? 'large' : 'XL'}
             </a>
             <a
               className="sidebarlabel"
               onTouchTap={this.handleSize}
               style={pointer}
             >
-              {window.innerWidth > 650 ? 'small' : 'S'}
+              {window.innerWidth > 800 ? 'small' : 'S'}
             </a>
           </div>
           <div className="dial" onTouchTap={this.handleSwitch}>
