@@ -47,15 +47,6 @@ const Sidebar = React.createClass({
       transformOrigin: '-100% 50%',
       boxShadow: '1px -1px 0px 0px rgba(#111, 0.2)'
     };
-    const dialLabelStyle = {
-      color: '#282724',
-      opacity: 0.4,
-      marginTop: '5%'
-    };
-    const userLabelStyle = {
-      marginRight: '5%',
-      marginLeft: '14%'
-    };
 
     const ledStyle = this.props.location === '/user'
       ? {
@@ -72,7 +63,7 @@ const Sidebar = React.createClass({
       </div>
       <div className="buttondiv">
         <div className="ledcontainer">
-          <span className="sidebarlabel" style={userLabelStyle}>user</span>
+          <span className="sidebarlabel sidebaruser">user</span>
           <div className="led" style={ledStyle} />
         </div>
         <a
@@ -86,24 +77,23 @@ const Sidebar = React.createClass({
               onTouchTap={this.handleSize}
               style={pointer}
             >
-              large
+              {window.innerWidth > 650 ? 'large' : 'XL'}
             </a>
             <a
               className="sidebarlabel"
               onTouchTap={this.handleSize}
               style={pointer}
             >
-              small
+              {window.innerWidth > 650 ? 'small' : 'S'}
             </a>
           </div>
           <div className="dial" onTouchTap={this.handleSwitch}>
             <div style={arrowStyle} />
           </div>
           <a
-            className="sidebarlabel"
-            style={dialLabelStyle}
+            className="sidebarlabel sidebardial"
           >
-            search radius
+            radius
           </a>
         </div>
       </div>

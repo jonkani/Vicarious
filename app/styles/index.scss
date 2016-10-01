@@ -356,6 +356,18 @@ canvas {
   color: #363430;
   opacity: 0.3;
   font: 20px furoreregular;
+  text-align: center;
+}
+
+.sidebaruser {
+  margin-right: 5%;
+  margin-left: 14%;
+}
+
+.sidebardial {
+  color: #282724;
+  opacity: 0.4;
+  margin-top: 5%;
 }
 
 .usercontainer {
@@ -679,8 +691,37 @@ canvas {
 }
 
 @media (max-width: 650px) {
+  .button {
+    height: 2rem;
+    width: 2rem;
+    box-shadow:
+      inset -2px 2px 0px 0px rgba(#fff, 0.1),
+      inset 2px -2px 0px 0px rgba(#111, 0.2),
+      0px 2.5px 2.5px 1px rgba(0, 0, 0, .3),
+      0px 5px 5px 1px rgba(51, 47, 46, 0.5);
+  }
+
+  .buttoncontainer {
+
+  }
+
+  .dial {
+    width: 3rem;
+    height: 3rem;
+    box-shadow:
+      inset -2px 2px 0px 0px rgba(#fff, 0.1),
+      inset 2px -2px 0px 0px rgba(#111, 0.2),
+      0px 5px 5px 1px rgba(0, 0, 0, .3),
+      0px 10px 10px 1px rgba(51, 47, 46, 0.5);
+  }
+
+  .midmonitor {
+
+  }
+
   .logo {
     font: 100 2.8rem "setback_tt_brkregular";
+      text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 5px 3px #000;
   }
 
   .headlabel {
@@ -695,9 +736,11 @@ canvas {
 
   .headbutton {
     width: 22%;
-
     box-shadow: 0px 0px 4px 2px #7Cbdbd;
+  }
 
+  .headcardtitle {
+    font-size: 0.75rem;
   }
 
   .logotext {
@@ -710,17 +753,31 @@ canvas {
     width: 100%;
     text-align: center;
   }
+
   .logobox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80%;
     width: 60%;
     height: 20%;
     border: 3px solid rgba(0, 0, 0, .5);
-    border-radius: 5%;
     box-shadow:
       1.5px 3px 5.5px 0px rgba(0, 0, 0, .3),
       inset 0px -1.5px 1px 1px rgba(51, 47, 46, 0.5);
+  }
+
+  .sidebarlabel {
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+    color: #363430;
+    opacity: 0.3;
+    font: 1rem furoreregular;
+    text-align: center;
+  }
+
+  .sidebardial {
+    font-size: 0.9rem;
+    opacity: 0.5;
+  }
+
+  .sidebaruser {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
