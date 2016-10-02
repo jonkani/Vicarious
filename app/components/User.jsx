@@ -170,30 +170,26 @@ const User = React.createClass({
 
   render() {
     let loginBody;
-    const headStyle = {
-      fontFamily: 'dpcomicregular',
-      color: '#fee',
-      fontSize: '3.5rem',
-      textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 5px 3px #000',
-      width: '100%',
-      height: '30%',
-      margin: '0 0 0 0',
-      textAlign: 'center'
-    };
     const errorGen = (topic) => {
       const errName = Object.keys(this.state.errors[topic])[0];
 
       if (errName) {
-        const newStyle = {
+        const errStyle = {
           fontSize: '2rem',
           textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 5px 3px #000'
         };
-        const errStyle = Object.assign({}, headStyle, newStyle);
 
-        return <h2 style={errStyle}>{this.state.errors[topic][errName]}</h2>;
+        return <h2
+          className={topic === 'login' ? 'loginheader' : 'loginheader reg'}
+          style={errStyle}
+        >
+          {this.state.errors[topic][errName]}
+        </h2>;
       }
 
-      return <h2 style={headStyle}>
+      return <h2
+        className={topic === 'login' ? 'loginheader' : 'loginheader reg'}
+      >
         {topic === 'login' ? 'Login' : 'Register '}
       </h2>;
     };
