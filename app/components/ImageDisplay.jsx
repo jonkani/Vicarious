@@ -28,10 +28,11 @@ const ImageDisplay = React.createClass({
 
   handleFavorite() {
     this.props.addFavorite();
+    this.props.openToast('Favorite added!');
   },
 
   render() {
-    const buttonDisplay = { display: 'none' };
+    const buttonDisplay = { display: 'none', zIndex: 0 };
     const photo = this.props.imageView;
     let url = '';
     let favoriteButton = null;
@@ -55,7 +56,8 @@ const ImageDisplay = React.createClass({
         height: '100%',
         width: '100%',
         top: 0,
-        left: 0
+        left: 0,
+        zIndex: 900
       }}
     >
       <Scene

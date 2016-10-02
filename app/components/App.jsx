@@ -107,6 +107,7 @@ const App = React.createClass({
         () => (this.openToast(message))
       );
     }
+    window.setTimeout(this.handleCloseToast, 4500);
     const newToast = Object.assign(
       {},
       this.state.toast,
@@ -150,15 +151,14 @@ const App = React.createClass({
               <Notification
                 barStyle={{
                   position: 'absolute',
-                  zIndex: 10,
+                  zIndex: 999,
                   border: '2px solid #ff00ff',
                   borderRadius: '4px'
                 }}
                 className="toast"
-                dismissAfter={4000}
+                dismissAfter={false}
                 isActive={this.state.toast.display}
                 message={this.state.toast.message}
-                onDismiss={this.handleCloseToast}
               />
               <div
                 className={this.state.loaded ? 'gradientoff' : 'gradient'}

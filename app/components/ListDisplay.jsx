@@ -77,7 +77,7 @@ const ListDisplay = React.createClass({
     return <div className="listparent">
       {listDisplay}
       <div className="listcontainer">
-        {this.props.resultsList.length && this.props.displayFavorites
+        {this.props.resultsList.length || this.props.displayFavorites
           ? this.props.resultsList.map((image, index) => {
             return <div className="headcard" key={index}>
               <span className="headcardtitle">{image.title}</span>
