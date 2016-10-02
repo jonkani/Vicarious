@@ -171,12 +171,13 @@ const User = React.createClass({
   render() {
     let loginBody;
     const headStyle = {
-      fontSize: '3.5rem',
       fontFamily: 'dpcomicregular',
       color: '#fee',
+      fontSize: '3.5rem',
       textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 5px 3px #000',
       width: '100%',
-      margin: '0 0',
+      height: '30%',
+      margin: '0 0 0 0',
       textAlign: 'center'
     };
     const errorGen = (topic) => {
@@ -184,8 +185,8 @@ const User = React.createClass({
 
       if (errName) {
         const newStyle = {
-          fontSize: '2.5rem',
-          textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 10px 3px #000'
+          fontSize: '2rem',
+          textShadow: '0 -20px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 5px 3px #000'
         };
         const errStyle = Object.assign({}, headStyle, newStyle);
 
@@ -227,7 +228,7 @@ const User = React.createClass({
           />
           <button onClick={this.handleLogin}>Login</button>
         </form>
-        <form className="loginform">
+        <form className="loginform" style={{ height: '50%' }}>
           {errorGen('reg')}
           <input
             name="reg.email"
