@@ -1,4 +1,5 @@
 import ArrowIcon from './ArrowIcon';
+import Instructions from './Instructions';
 import React from 'react';
 import SearchIcon from './SearchIcon';
 import StarIcon from './StarIcon';
@@ -76,25 +77,31 @@ const ListDisplay = React.createClass({
     return <div className="listparent">
       {listDisplay}
       <div className="listcontainer">
-        {this.props.resultsList.map((image, index) => {
-          return <div className="headcard" key={index}>
-            <span className="headcardtitle">{image.title}</span>
-            <div
-              className="headcardbutton"
-              onClick={() => (this.handleArrowClick(image))}
-              onMouseEnter={this.handleButtonEnter}
-              onMouseLeave={this.handleButtonLeave}
-              value={image.id}
-            >
-              <ArrowIcon
-                stroke={
-                  this.state.buttonHover === image.id
-                  ? '#fd00ff'
-                  : 'none'}
-              />
-            </div>
-          </div>;
-        })}
+        {this.props.resultsList.length && this.props.displayFavorites
+          ? this.props.resultsList.map((image, index) => {
+            return <div className="headcard" key={index}>
+              <span className="headcardtitle">{image.title}</span>
+              <div
+                className="headcardbutton"
+                onClick={() => (this.handleArrowClick(image))}
+                onMouseEnter={this.handleButtonEnter}
+                onMouseLeave={this.handleButtonLeave}
+                value={image.id}
+              >
+                <ArrowIcon
+                  fill={
+                    this.state.buttonHover === image.id
+                    ? '#ff70ff'
+                    : 'white'}
+                  stroke={
+                    this.state.buttonHover === image.id
+                    ? '#fd00ff'
+                    : 'none'}
+                />
+              </div>
+            </div>;
+          })
+      : <Instructions />}
       </div>
     </div>;
   }

@@ -156,6 +156,25 @@ canvas {
   margin-right: 3%;
 }
 
+.headcardinstruction {
+  width: 100%;
+  margin: 2% 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 4px solid #3acaec;
+  border-bottom: 4px solid #3acaec;
+}
+
+.headcardinfotext {
+  text-align: center;
+  font-family: dpcomicregular;
+  font-size: 1.5rem;
+  color: #e3e3e3;
+  margin: 3% 3%;
+  width: 94%;
+}
+
 .headcardtitle {
   font-family: novemberregular;
   color: #e3e3e3;
@@ -663,7 +682,7 @@ canvas {
   }
 
   .listcontainer {
-    max-height: 70%;
+    max-height: 72%;
   }
 
   .logo {
@@ -721,6 +740,10 @@ canvas {
 }
 
 @media (max-width: 800px) {
+  .headcardinfotext {
+    font-size: 1.2rem;
+  }
+
   .led {
     display: none;
   }
