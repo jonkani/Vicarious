@@ -58,7 +58,7 @@ const Sidebar = React.createClass({
     return <div className="buttoncontainer">
       <div className="logodiv">
         <div className="logobox">
-          <span className="logotext">VR</span>
+          <span className="logotext">V</span>
         </div>
       </div>
       <div className="buttondiv">

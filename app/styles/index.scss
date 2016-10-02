@@ -194,12 +194,12 @@ canvas {
   justify-content: center;
   align-items: center;
   margin-top: 40%;
-  width: 50%;
-  height: 25%;
+  width: 55%;
+  height: 30%;
   border: 5px solid rgba(0, 0, 0, .5);
-  border-radius: 5%;
+  border-radius: 5px;
   box-shadow:
-    3px 8px 10px 0px rgba(0, 0, 0, .3),
+    3px 5px 7px 0px rgba(0, 0, 0, .3),
     inset 0px -3px 1px 1px rgba(51, 47, 46, 0.5);
 }
 
@@ -212,8 +212,9 @@ canvas {
 }
 
 .logotext {
-  font-size: 4rem;
-  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  margin-left: 7%;
+  font-size: 7rem;
+  text-shadow: -1px -1px 1px #fff, 1px 3px 3px #000;
   color: black;
   opacity: 0.5;
   font-family: setback_tt_brkregular
@@ -362,6 +363,7 @@ canvas {
 .sidebaruser {
   margin-right: 5%;
   margin-left: 14%;
+  font-size: 1.5rem;
 }
 
 .sidebardial {
@@ -671,11 +673,11 @@ canvas {
   .logobox {
     margin-top: 60%;
     width: 60%;
-    height: 20%;
+    height: 25%;
   }
 
   .logotext {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   .headcontainer {
@@ -791,7 +793,7 @@ canvas {
   }
 
   .logotext {
-    font-size: 2rem;
+    font-size: 4rem;
     text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
     color: black;
     opacity: 0.5;
@@ -803,8 +805,8 @@ canvas {
 
   .logobox {
     width: 60%;
-    height: 25%;
-    margin-top: 130%;
+    height: 23%;
+    margin-top: 110%;
     border: 3px solid rgba(0, 0, 0, .5);
     box-shadow:
       1.5px 3px 5.5px 0px rgba(0, 0, 0, .3),
@@ -826,5 +828,20 @@ canvas {
   .sidebardial {
     font-size: 0.9rem;
     opacity: 0.5;
+  }
+}
+
+@media (max-width: 450px) {
+  .logotext {
+    font-size: 3rem;
+  }
+
+  .logobox {
+    height: 20%;
+  }
+
+  .sidebardial {
+    font-size: .8rem;
+    margin-top: 15%;
   }
 }
