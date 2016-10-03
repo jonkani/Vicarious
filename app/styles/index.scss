@@ -381,6 +381,7 @@ canvas {
 .searchscreen {
   height: 100%;
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
