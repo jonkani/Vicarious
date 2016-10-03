@@ -27,8 +27,6 @@
 
 }
 
-@import url(http://fonts.googleapis.com/css?family=Cabin:400);
-
 #app {
   height: 100%;
 }
@@ -42,6 +40,10 @@ canvas {
   border-radius: 20px;
   max-height: 100%;
   max-width: 100%;
+}
+
+div .a-enter-vr {
+  width: 0%;
 }
 
 .buttoncontainer {
@@ -381,7 +383,6 @@ canvas {
 .searchscreen {
   height: 100%;
   display: flex;
-  display: -webkit-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -415,8 +416,6 @@ canvas {
   width: 100%;
 }
 
-
-//background scroll
 .gradient {
   height: 100%;
   background: url(Scroll.jpg);
@@ -425,6 +424,7 @@ canvas {
   animation: 100s scroll infinite linear;
   background-size: cover;
 }
+
 @-webkit-keyframes scroll{
   100%{
     background-position:0px -3000px;
@@ -449,7 +449,6 @@ canvas {
   background-size: cover;
 }
 
-//logo flickering
 .logo{
   font: 100 7rem "setback_tt_brkregular";
   color: #fee;
@@ -494,8 +493,6 @@ canvas {
   }
 }
 
-//user forms and glow
-
 .loginform form {
 	background: #111;
 	background: linear-gradient(#1b1b1b, #111);
@@ -515,7 +512,7 @@ canvas {
 	box-shadow: 0 2px 0 #000;
 	color: #888;
 	font-family: 'dpcomicregular';
-	font-size: 13px;
+	font-size: 1.3rem;
 	font-weight: 400;
 	height: 40px;
 	padding: 0 10px;
@@ -603,7 +600,6 @@ canvas {
   }
 }
 
-// sidebar interactables
 .button{
 	background-image: -webkit-linear-gradient(top, #585650, #53514b);
 	background-image: linear-gradient(top, #2b241c, #53514b);
@@ -613,10 +609,6 @@ canvas {
     inset 2px -2px 0px 0px rgba(#111, 0.2),
     0px 5px 5px 1px rgba(0, 0, 0, .3),
     0px 10px 10px 1px rgba(51, 47, 46, 0.5);
-	// box-shadow:
-  //   0px 8px 10px 0px rgba(0, 0, 0, .3),
-  //   inset 0px 4px 1px 1px #4e4c46,
-  //   inset 0px -3px 1px 1px rgba(51, 47, 46, 0.5);
   cursor: pointer;
 	height: 70px;
 	width: 70px;

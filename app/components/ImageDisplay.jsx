@@ -62,7 +62,7 @@ const ImageDisplay = React.createClass({
     >
       <Scene
         onLoaded={this.handleLoad}
-        vr-mode-ui={{ enabled: 'false' }}
+        vr-mode-ui={{ enabled: 'true' }}
       >
         <a-assets>
           <img crossOrigin="anonymous" id="displayimg" src={url} />
