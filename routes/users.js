@@ -75,6 +75,7 @@ router.post('/users/favorites', checkAuth, (req, res, next) => {
     longitude
   } = req.body;
   const userId = Number.parseInt(req.token.userId);
+  let userFavorite;
 
   knex('favorites')
     .select('id')
@@ -101,7 +102,18 @@ router.post('/users/favorites', checkAuth, (req, res, next) => {
     })
     .then((favId) => {
       const favoriteId = Number.parseInt(favId);
-      const userFavorite = { userId, favoriteId };
+
+      userFavorite = { userId, favoriteId };
+
+      return knex('users_favorites')
+        .select(knex.raw('1=1'))
+        .where({ user_id: userId, favorite_id: favoriteId })
+        .first();
+    })
+    .then((exists) => {
+      if (exists) {
+        throw boom.create(400, 'Favorite already exists.');
+      }
 
       return knex('users_favorites')
       .insert(decamelizeKeys(userFavorite));

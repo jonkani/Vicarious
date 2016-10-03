@@ -66,7 +66,7 @@ const App = React.createClass({
         this.setState({ imageList: photos, displayFavorites: false });
       })
       .catch((err) => {
-        this.openToast(`Whoops! ${err}`);
+        this.openToast(`Whoops! ${err.response.data}`);
       });
   },
 
@@ -78,7 +78,7 @@ const App = React.createClass({
         this.setState({ favorites: newFavorites });
       })
       .catch((err) => {
-        this.openToast(`Whoops! ${err}`);
+        this.openToast(`Whoops! ${err.response.data}`);
       });
   },
 
@@ -89,7 +89,7 @@ const App = React.createClass({
           this.getFavorites();
         })
         .catch((err) => {
-          this.openToast(`Whoops! ${err}`);
+          this.openToast(`Whoops! ${err.response.data}`);
         });
     }
   },
