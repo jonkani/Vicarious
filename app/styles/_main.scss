@@ -1,0 +1,360 @@
+@font-face {
+    font-family: 'setback_tt_brkregular';
+    src: url('setbackt-webfont.woff2') format('woff2'),
+         url('setbackt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'furoreregular';
+    src: url('Furore-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dpcomicregular';
+    src: url('dpcomic-webfont.woff2') format('woff2'),
+         url('dpcomic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'novemberregular';
+    src: url('novem___-webfont.woff2') format('woff2'),
+         url('novem___-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#app {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+canvas {
+  border-radius: 20px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+div .a-enter-vr {
+  width: 0%;
+}
+
+.displayback {
+  bottom: 2%;
+}
+
+.displaybutton {
+  z-index: 999;
+  position: absolute;
+  left: 2%;
+  height: 8%;
+  width: 8%;
+  cursor: pointer;
+}
+
+.displayfav {
+  bottom: 12%;
+}
+
+.headbutton {
+  width: 20%;
+  height: 80%;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  box-shadow: 0px 0px 8px 4px #7Cbdbd;
+  border: 3px solid #3acaec;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.headcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+  border-bottom: 4px solid #3acaec;
+}
+
+.headlabel {
+  margin-top: 1.5%;
+  width: 60%;
+  margin-left: 6%;
+  margin-right: 6%;
+  color: #3acaec;
+  font-family: dpcomicregular;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.headcard {
+  width: 100%;
+  height: 4.5rem;
+  margin: 2% 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid #3acaec;
+  border-bottom: 4px solid #3acaec;
+}
+
+.headcardbutton {
+  height: 80%;
+  margin-right: 3%;
+}
+
+.headcardinstruction {
+  width: 100%;
+  margin: 2% 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 4px solid #3acaec;
+  border-bottom: 4px solid #3acaec;
+}
+
+.headcardinfotext {
+  text-align: center;
+  font-family: dpcomicregular;
+  font-size: 1.5rem;
+  color: #e3e3e3;
+  margin: 3% 3%;
+  width: 94%;
+}
+
+.headcardtitle {
+  font-family: novemberregular;
+  color: #e3e3e3;
+  margin-left: 3%;
+  width: 70%;
+}
+
+.listparent {
+  height: 92%;
+  max-height: 92%;
+  width: 30%;
+  background-color: black;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 4px #7Cbdbd;
+  border: 4px solid #3acaec;
+  border-radius: 5px;
+}
+
+.listcontainer {
+  max-height: 89%;
+  overflow: auto;
+}
+
+.mastercontainer {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.mapcontainer {
+  height: 92%;
+  width: 50%;
+
+  margin-right: 2%;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 4px #7Cbdbd;
+  border: 4px solid #3acaec;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.midmonitor {
+  background-image:
+    linear-gradient(
+      to bottom left,
+      #4e4c46, #5b5852
+    );
+  border-radius: 20px;
+  height: 93%;
+  width: 78%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3%;
+}
+
+.midbuttons {
+  width: 15%;
+  height: 90%;
+  border-radius: 20px;
+  background-image:
+    linear-gradient(
+      to bottom left,
+      #5b5852, #46443f
+  );
+  margin-left: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.monitor {
+  border: 3px solid black;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 93%;
+  width: 95%;
+}
+
+.monitorborder {
+  background-color: #6b6861;
+  border-radius: 20px;
+  height: 99%;
+  width: 99.2%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.monitorborderborder {
+  height: 94%;
+  width: 94%;
+  background-color: #928577;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outermonitor {
+  background-color: #bdb5ad;
+}
+
+.regform {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.searchscreen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gradient {
+  height: 100%;
+  background: url(Scroll.jpg);
+  -webkit-animation: 100s scroll infinite linear;
+  -moz-animation: 100s scroll infinite linear;
+  animation: 100s scroll infinite linear;
+  background-size: cover;
+}
+
+@-webkit-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@-moz-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+.gradientoff {
+  height: 100%;
+  background: #000;
+  background-size: cover;
+}
+
+.logo{
+  font: 100 7rem "setback_tt_brkregular";
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 10px 3px #000;
+}
+
+.logo span{
+  animation: blink linear infinite 10s;
+}
+
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79%{
+     color: #333;
+  }
+  80% {
+
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  90% {
+    color: #333;
+    text-shadow: none;
+  }
+  91.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}
+
+.toast {
+  animation: hum 600ms ease-out infinite alternate;
+  box-shadow: 0 0 5px rgba(253,0,255,.2), inset 0 0 5px rgba(253,0,255,.1), 0 2px 0 #000;
+}
+
+@keyframes hum {
+  0% {
+	border-color: #ff00ff;
+	box-shadow:
+    0 0 18px rgba(253,0,255,.65),
+    inset 0 0 8px rgba(253,0,255,.55),
+    0 2px 0 #000;
+  }
+  100% {
+	border-color: #ff29ff;
+	box-shadow:
+    0 0 28px rgba(253,0,255,.9),
+    inset 0 0 10px rgba(253,0,255,.7),
+    0 2px 0 #000;
+  }
+}
