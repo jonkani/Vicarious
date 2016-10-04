@@ -1,0 +1,149 @@
+.loginform form {
+	background: #111;
+	background: linear-gradient(#1b1b1b, #111);
+	border: 1px solid #000;
+	border-radius: 5px;
+	box-shadow: inset 0 0 0 1px #272727;
+	font-size: 0px;
+	padding: 20px;
+	z-index: 1;
+}
+
+.loginform input {
+	background: #222;
+	background: linear-gradient(#333, #222);
+	border: 1px solid #444;
+	border-radius: 5px;
+	box-shadow: 0 2px 0 #000;
+	color: #888;
+	font-family: 'dpcomicregular';
+	font-size: 1.3rem;
+	font-weight: 400;
+	height: 40px;
+	padding: 0 10px;
+	text-shadow: 0 -1px 0 #000;
+}
+
+.ie .loginform input {
+	line-height: 40px;
+}
+
+.loginform input::-webkit-input-placeholder {
+   color: #888;
+}
+
+.loginform input:-moz-placeholder {
+   color: #888;
+}
+
+.loginform input:focus {
+	animation: glow 800ms ease-out infinite alternate;
+	background: #28232a;
+	background: linear-gradient(#383239, #28232a);
+	border-color: #993394;
+	box-shadow: 0 0 5px rgba(253,0,255,.2), inset 0 0 5px rgba(253,0,255,.1), 0 2px 0 #000;
+	color: #efe;
+	outline: none;
+}
+
+.loginform input:focus::-webkit-input-placeholder {
+	color: #fff0fe;
+}
+
+.loginform input:focus:-moz-placeholder {
+	color: #fff0fe;
+}
+
+.loginform button {
+	background: #222;
+	background: linear-gradient(#333, #222);
+	box-sizing: content-box;
+	border: 1px solid #444;
+	border-radius: 15px;
+	box-shadow: 0 2px 0 #000;
+	color: #fff;
+	font-family: 'novemberregular';
+	font-size: 1rem;
+	font-weight: 400;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 40% 0 40%;
+	padding: 0;
+	text-shadow: 0 -1px 0 #000;
+	min-width: 80px;
+}
+
+.loginform button:hover,
+.loginform button:focus {
+	background: #292929;
+	background: linear-gradient(#393939, #292929);
+	color: #ff57f7;
+	outline: none;
+}
+
+.loginform button:active {
+	background: #292929;
+	background: linear-gradient(#393939, #292929);
+	box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+	top: 1px;
+}
+
+@keyframes glow {
+  0% {
+	border-color: #8f3399;
+	box-shadow:
+    0 0 5px rgba(253,0,255,.2),
+    inset 0 0 5px rgba(253,0,255,.1),
+    0 2px 0 #000;
+  }
+  100% {
+	border-color: #ff66f5;
+	box-shadow:
+    0 0 20px rgba(253,0,255,.6),
+    inset 0 0 10px rgba(253,0,255,.4),
+    0 2px 0 #000;
+  }
+}
+
+.loginform {
+  height: 42%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loginheader {
+    font-family: dpcomicregular;
+    color: #fee;
+    font-size: 3.5rem;
+    text-shadow: 0 -20px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 5px 3px #000;
+    width: 100%;
+    height: 30%;
+    margin: 0 0 0 0;
+    text-align: center;
+}
+
+.loginheader .reg {
+  height: 25%;
+}
+
+
+.logout {
+  font-family: novemberregular;
+  font-size: 4rem;
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 10px 3px #000;
+  cursor: pointer;
+}
+
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

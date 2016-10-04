@@ -1,0 +1,202 @@
+@media (max-width: 1000px) {
+  .searchcontainer {
+    flex-direction: column;
+  }
+
+  .listparent {
+    width: 80%;
+    height: 30%;
+    max-height: 100%;
+  }
+
+  .listcontainer {
+    max-height: 72%;
+  }
+
+  .logo {
+    font: 100 5rem "setback_tt_brkregular";
+  }
+
+  .logobox {
+    margin-top: 60%;
+    width: 60%;
+    height: 25%;
+  }
+
+  .logotext {
+    font-size: 5rem;
+  }
+
+  .headcontainer {
+    height: 25%;
+  }
+
+  .mapcontainer {
+    width: 90%;
+    height: 60%;
+    margin-right: 0;
+    margin-bottom: 3%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .sidebarlabel {
+    font-size: 1.1rem;
+  }
+
+  .sidebardial {
+    font-size: 1.3rem;
+  }
+
+  .sidebaruser {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebarlabel {
+    font-size: 1rem;
+  }
+
+  .sidebardial {
+    font-size: 1.3rem;
+  }
+
+  .sidebaruser {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .headcardinfotext {
+    font-size: 1.2rem;
+  }
+
+  .led {
+    display: none;
+  }
+
+  .sidebarlabel {
+    margin-left: 7%;
+    margin-right: 7%;
+    font-size: 1.3rem;
+  }
+
+  .sidebaruser {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .button {
+    height: 2rem;
+    width: 2rem;
+    box-shadow:
+      inset -2px 2px 0px 0px rgba(#fff, 0.1),
+      inset 2px -2px 0px 0px rgba(#111, 0.2),
+      0px 2.5px 2.5px 1px rgba(0, 0, 0, .3),
+      0px 5px 5px 1px rgba(51, 47, 46, 0.5);
+  }
+
+  .dial {
+    width: 3rem;
+    height: 3rem;
+    box-shadow:
+      inset -2px 2px 0px 0px rgba(#fff, 0.1),
+      inset 2px -2px 0px 0px rgba(#111, 0.2),
+      0px 5px 5px 1px rgba(0, 0, 0, .3),
+      0px 10px 10px 1px rgba(51, 47, 46, 0.5);
+  }
+
+  .gradient {
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+  }
+
+  .loginheader {
+    height: 40%;
+  }
+
+  .logo {
+    font: 100 2.8rem "setback_tt_brkregular";
+      text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #fd00ff, 0 0 0.5em #fd00ff, 0 0 0.1em #fd00ff, 0 5px 3px #000;
+  }
+
+  .logo span{
+    animation: none;
+  }
+
+  .headlabel {
+    font-size: 1.3rem;
+  }
+  .headcontainer {
+    height: 20%;
+  }
+  .listcontainer {
+    max-height: 77%;
+  }
+
+  .headbutton {
+    width: 22%;
+    box-shadow: 0px 0px 4px 2px #7Cbdbd;
+  }
+
+  .headcardtitle {
+    font-size: 0.75rem;
+  }
+
+  .logotext {
+    font-size: 4rem;
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+    color: black;
+    opacity: 0.5;
+    font-family: setback_tt_brkregular;
+    overflow-wrap: break-word;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logobox {
+    width: 60%;
+    height: 23%;
+    margin-top: 110%;
+    border: 3px solid rgba(0, 0, 0, .5);
+    box-shadow:
+      1.5px 3px 5.5px 0px rgba(0, 0, 0, .3),
+      inset 0px -1.5px 1px 1px rgba(51, 47, 46, 0.5);
+  }
+
+  .monitor {
+    height: 95%;
+  }
+
+  .sidebarlabel {
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+    color: #363430;
+    opacity: 0.3;
+    font: 1rem furoreregular;
+    text-align: center;
+  }
+
+  .sidebardial {
+    font-size: 0.9rem;
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 450px) {
+  .logotext {
+    font-size: 3rem;
+  }
+
+  .logobox {
+    height: 20%;
+  }
+
+  .sidebardial {
+    font-size: .8rem;
+    margin-top: 15%;
+  }
+}

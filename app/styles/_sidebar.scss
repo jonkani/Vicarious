@@ -1,0 +1,168 @@
+.buttoncontainer {
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #46443f;
+  /*border-image:
+    linear-gradient(
+      to bottom,
+      black,
+      rgba(0, 0, 0, 0)
+      )
+    1 100%;*/
+  height: 100%;
+  width: 16%;
+  margin-left: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttondiv {
+  width:100%;
+  height: 50%;
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dialcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 25%;
+}
+
+.diallabelcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.sidebarlabel {
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  color: #363430;
+  opacity: 0.3;
+  font: 1.3rem furoreregular;
+  text-align: center;
+}
+
+.sidebaruser {
+  margin-right: 5%;
+  margin-left: 14%;
+  font-size: 1.5rem;
+}
+
+.sidebardial {
+  color: #282724;
+  opacity: 0.4;
+  margin-top: 5%;
+}
+
+.usercontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.button{
+	background-image: -webkit-linear-gradient(top, #585650, #53514b);
+	background-image: linear-gradient(top, #2b241c, #53514b);
+	border-radius: 50%;
+  box-shadow:
+    inset -2px 2px 0px 0px rgba(#fff, 0.1),
+    inset 2px -2px 0px 0px rgba(#111, 0.2),
+    0px 5px 5px 1px rgba(0, 0, 0, .3),
+    0px 10px 10px 1px rgba(51, 47, 46, 0.5);
+  cursor: pointer;
+	height: 70px;
+	width: 70px;
+	-webkit-transition: all .1s linear;
+	transition: all .1s linear;
+}
+
+.button:hover{
+	background-image: -webkit-linear-gradient(top, #53514b, #585650);
+	background-image: linear-gradient(top, #53514b, #585650);
+}
+
+.button:active{
+	background-image: -webkit-linear-gradient(top, #53514b, #4e4c46);
+	background-image: linear-gradient(top, #53514b, #3b3a35);
+	box-shadow:
+    0 3px 5px 0 rgba(0,0,0,.4),
+    inset 0px -3px 1px 1px rgba(43, 39, 38, 0.5);
+}
+
+.led {
+  width: 19px;
+  height: 19px;
+  background-color: #a00d0d;
+  border-radius: 50%;
+  box-shadow:
+    rgba(0, 0, 0, 0.2) 0 -1px 7px 1px,
+    inset #441313 0 -1px 9px,
+    rgba(255, 0, 0, 0.5) 0 2px 12px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.dial {
+  cursor: pointer;
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background-color: #585650;
+  border-radius: 50%;
+  box-shadow:
+    inset -2px 2px 0px 0px rgba(#fff, 0.1),
+    inset 2px -2px 0px 0px rgba(#111, 0.2),
+    0px 5px 5px 1px rgba(0, 0, 0, .3),
+    0px 10px 10px 1px rgba(51, 47, 46, 0.5);
+}
+
+.logobox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
+  width: 55%;
+  height: 30%;
+  border: 5px solid rgba(0, 0, 0, .5);
+  border-radius: 5px;
+  box-shadow:
+    3px 5px 7px 0px rgba(0, 0, 0, .3),
+    inset 0px -3px 1px 1px rgba(51, 47, 46, 0.5);
+}
+
+.logodiv {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logotext {
+  margin-left: 7%;
+  font-size: 7rem;
+  text-shadow: -1px -1px 1px #fff, 1px 3px 3px #000;
+  color: black;
+  opacity: 0.5;
+  font-family: setback_tt_brkregular
+}
+
+.ledcontainer {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
