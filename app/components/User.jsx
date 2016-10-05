@@ -180,8 +180,7 @@ const User = React.createClass({
         };
 
         return <h2
-          className={topic === 'login' ? 'loginheader' : 'loginheader reg'}
-          style={errStyle}
+          className={topic === 'login' ? 'loginheader error' : 'loginheader reg error'}
         >
           {this.state.errors[topic][errName]}
         </h2>;
@@ -224,7 +223,7 @@ const User = React.createClass({
           />
           <button onClick={this.handleLogin}>Login</button>
         </form>
-        <form className="loginform" style={{ height: '50%' }}>
+        <form className="loginform">
           {errorGen('reg')}
           <input
             name="reg.email"

@@ -1,14 +1,3 @@
-.loginform form {
-	background: #111;
-	background: linear-gradient(#1b1b1b, #111);
-	border: 1px solid #000;
-	border-radius: 5px;
-	box-shadow: inset 0 0 0 1px #272727;
-	font-size: 0px;
-	padding: 20px;
-	z-index: 1;
-}
-
 .loginform input {
 	background: #222;
 	background: linear-gradient(#333, #222);
@@ -126,10 +115,14 @@
     text-align: center;
 }
 
-.loginheader .reg {
+.reg {
   height: 25%;
 }
 
+.error {
+	font-size: 2rem;
+	text-shadow: 0 -20px 100px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em #ff0000, 0 0 0.1em #ff0000, 0 5px 3px #000;
+}
 
 .logout {
   font-family: novemberregular;
