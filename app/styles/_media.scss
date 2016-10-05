@@ -109,6 +109,10 @@
       0px 10px 10px 1px rgba(51, 47, 46, 0.5);
   }
 
+  .error {
+    font-size: 2rem;
+  }
+
   .gradient {
     -webkit-animation: none;
     -moz-animation: none;
@@ -203,6 +207,14 @@
 }
 
 @media (max-width: 670px) and (orientation: landscape) {
+  .button {
+    width: 1.85rem;
+  }
+
+  .dial {
+    width: 2.85rem;
+  }
+
   .buttondiv {
     margin-top: 10%;
   }
@@ -246,6 +258,10 @@
     height: 33%;
   }
 
+  .error {
+    font-size: 1.5rem;
+  }
+
 
   .headlabel {
     font-size: 1.3rem;
@@ -276,7 +292,6 @@
     width: 100%;
     text-align: center;
   }
-
 
   .monitor {
     height: 95%;
