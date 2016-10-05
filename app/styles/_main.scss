@@ -45,6 +45,10 @@ div .a-enter-vr {
   width: 0%;
 }
 
+.a-canvas .a-grab-cursor .fullscreen {
+  position: fixed;
+}
+
 .displayback {
   bottom: 2%;
 }
@@ -249,7 +253,7 @@ div .a-enter-vr {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  height: 100%;
+  height: 85%;
 }
 
 .searchscreen {
