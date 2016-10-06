@@ -35,7 +35,7 @@
     width: 90%;
     height: 60%;
     margin-right: 0;
-    margin-bottom: 3%;
+    margin-bottom: 4%;
   }
 }
 
@@ -206,13 +206,15 @@
   }
 }
 
-@media (max-width: 670px) and (orientation: landscape) {
+@media (max-width: 750px) and (orientation: landscape) {
   .button {
-    width: 1.85rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   .dial {
     width: 2.85rem;
+    height: 2.85rem;
   }
 
   .buttondiv {
@@ -308,6 +310,16 @@
   .sidebardial {
     font-size: 0.9rem;
     opacity: 0.5;
+  }
+}
+
+@media (max-width: 670px) and (orientation: landscape) {
+  .button {
+    width: 1.85rem;
+  }
+
+  .dial {
+    width: 2.85rem;
   }
 }
 
