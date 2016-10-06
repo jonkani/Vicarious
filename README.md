@@ -8,10 +8,7 @@ In short, it's a fancy panorama with a 2:1 width-to-heigh ratio that's wrap-able
 
 ## Tech
 
-* React & associated libraries:
-- React Google Maps
-- React Notification
-- A-Frame React
+* React & associated libraries: React Google Maps, React Notification, A-Frame React, React Router
 * A-Frame
 * Sass
 
