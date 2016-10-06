@@ -217,6 +217,12 @@
     height: 2.85rem;
   }
 
+  .gradient {
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+  }
+
   .buttondiv {
     margin-top: 10%;
   }
